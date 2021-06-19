@@ -1,0 +1,42 @@
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import static java.util.Arrays.stream;
+
+
+public abstract class World{
+
+    protected final Physic physic;
+    protected final List<Sprite> sprites = new CopyOnWriteArrayList<Sprite>();
+    protected final CollisionHandler collisionHandler;
+
+    public World(Physic physic, CollisionHandler collisionHandler, Sprite... sprites) {
+        this.physic = physic;
+        this.collisionHandler = collisionHandler;
+        addSprites(sprites);
+    }
+
+    public void addSprites(Sprite... sprites) {
+        stream(sprites).forEach(this::addSprite);
+    }
+
+    public void addSprite(Sprite sprite) {
+        sprites.add(sprite);
+        sprite.setWorld(this);
+    }
+
+    public void update() {
+        for (Sprite sprite : this.sprites) {
+            sprite.update();
+        }
+    }
+
+    public List<Sprite> getSprites(){
+        return sprites;
+    }
+
+    public void render(Renderable g){
+        for (Sprite sprite: this.sprites){
+            sprite.render(g);            
+        }
+    }
+}

@@ -1,3 +1,3 @@
-public abstract class CollisionHandler{
-
+public interface CollisionHandler{
+    void handle(Sprite from, Sprite to);
 }
