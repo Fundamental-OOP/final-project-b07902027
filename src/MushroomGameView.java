@@ -1,9 +1,7 @@
-public class View{
+public class MushroomGameView extends View{
 
-    private Game game;
-
-    public View(Game game){
-        this.game = game;
+    public MushroomGameView(Renderable r){
+        super(r);
     }
 
     public void launch(){    

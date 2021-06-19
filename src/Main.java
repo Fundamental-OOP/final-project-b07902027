@@ -7,11 +7,12 @@ public class Main{
         Knife kf2 = new Knife();
         Mushroom m1 = new Mushroom(kf1);
         Mushroom m2 = new Mushroom(kf2);
-        ArrayList<CollisionHandler> collisionHandlers = new ArrayList<CollisionHandler>();
-        collisionHandlers.add(new KnifeMushroomCollisionHandler());
-        World world = new World(new Physic(), collisionHandlers, m1, m2, kf1, kf2);  // model
-        Game game = new Game(world);  // controller
-        View view = new View(game);  // view
+        int fps = 60;
+
+        World world = new MushroomWorld(new Physic(), new MushroomWorldCollisionHandler(), m1, m2, kf1, kf2);  // model
+        View view = new MushroomGameView(new Canvas());  // view
+        Game game = new MushroomGame(world, view, fps);  // controller
+
         game.start();
         view.launch();
     }
