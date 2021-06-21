@@ -9,11 +9,12 @@ public class Main{
         Mushroom m2 = new Mushroom(kf2);
         int fps = 60;
 
-        World world = new MushroomWorld(new Physic(), new MushroomWorldCollisionHandler(), m1, m2, kf1, kf2);  // model
-        View view = new MushroomGameView(new Canvas());  // view
+        CollisionHandler collisionHandler = new MushroomWorldCollisionHandler();
+        View view = new MushroomView();  // view
+        Physic physic = new MushroomWorldPhysic(view);
+        World world = new MushroomWorld(physic, collisionHandler, m1, m2, kf1, kf2);  // model
         Game game = new MushroomGame(world, view, fps);  // controller
-
+        
         game.start();
-        view.launch();
     }
 }

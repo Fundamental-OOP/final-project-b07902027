@@ -2,8 +2,8 @@ public class Mushroom extends Sprite {
 
     private Knife knife;
 
-    public Mushroom(Knife _knife){
-        super();
-        this.knife = _knife;
+    public Mushroom(Knife knife){
+        super(new MushroomWorldPainter("src/mushroom.png"));
+        this.knife = knife;
     }
 }

@@ -1,5 +1,6 @@
 public class Knife extends Sprite {
+    
     public Knife(){
-        super();
+        super(new MushroomWorldPainter("img/mushroom.img"));
     }
 }
