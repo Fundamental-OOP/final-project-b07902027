@@ -28,6 +28,7 @@ public class Game{
 
     public void start() {
         new Thread(this::gameLoop).start();
+        this.view.launch();
     }
 
     public void stop(){

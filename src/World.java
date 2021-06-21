@@ -24,6 +24,10 @@ public abstract class World{
         sprite.setWorld(this);
     }
 
+    public Physic getPhysic(){
+        return this.physic;
+    }
+
     public void update() {
         for (Sprite sprite : this.sprites) {
             sprite.update();
@@ -34,9 +38,9 @@ public abstract class World{
         return sprites;
     }
 
-    public void render(Renderable g){
+    public void render(Renderable r){
         for (Sprite sprite: this.sprites){
-            sprite.render(g);            
+            sprite.render(r);            
         }
     }
 }

@@ -3,22 +3,33 @@ import java.awt.*;
 
 public abstract class Sprite{
 
-    protected Rectangle location;
-    protected double speedX, speedY;
     protected World world;
+    protected Coordinate coordinate;
+    protected Painter painter;
+
+    public Sprite(Painter painter){
+        this.coordinate = new Coordinate();
+        this.painter = painter;
+        this.painter.setSprite(this);
+    }
 
     public void setWorld(World world){
         this.world = world;
-        this.speedX = Physic.initSpeed;
-        this.speedY = 0.0;
-        this.location = new Rectangle();
+    }
+
+    public Coordinate getCoordinate(){
+        return this.coordinate;
+    }
+
+    public Painter getPainter(){
+        return this.painter;
     }
 
     public void update(){
-
+        this.world.getPhysic();
     }
 
     public void render(Renderable r){
-
+        this.painter.paint(r);
     }
 }
