@@ -1,9 +1,16 @@
-public class MushroomWorldPainter implements Painter{
+package mushroom_battle.controller;
+
+import sdk.model.*;
+import sdk.view.*;
+import sdk.controller.*;
+
+
+public class MushroomBattlePainter implements Painter{
 
     private Sprite sprite;
     String imagePath;
 
-    public MushroomWorldPainter(String imagePath){
+    public MushroomBattlePainter(String imagePath){
         this.imagePath = imagePath;
     }
 

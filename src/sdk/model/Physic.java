@@ -1,3 +1,8 @@
+package sdk.model;
+
+import sdk.view.*;
+
+
 public abstract class Physic{
 
     int borderX, borderY;
@@ -16,5 +21,5 @@ public abstract class Physic{
         return this.borderY;
     }
 
-    abstract void initCoordinates(Sprite... sprites);
+    public abstract void initCoordinates(Sprite... sprites);
 }

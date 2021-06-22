@@ -1,3 +1,9 @@
+package sdk.controller;
+
+import sdk.view.*;
+import sdk.model.*;
+
+
 public class Game{
 
     protected View view;

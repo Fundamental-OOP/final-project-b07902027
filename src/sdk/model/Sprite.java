@@ -1,4 +1,8 @@
+package sdk.model;
+
 import java.awt.*;
+import sdk.controller.*;
+import sdk.view.*;
 
 
 public abstract class Sprite{

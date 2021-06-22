@@ -1,10 +1,15 @@
-public class MushroomView extends View{
+package mushroom_battle.view;
+
+import sdk.view.*;
+
+
+public class MushroomBattleView extends View{
 
     private final static int MAP_WIDTH = 500;
     private final static int MAP_HEIGHT = 400;
     Canvas canvas;
 
-    public MushroomView(){
+    public MushroomBattleView(){
         this.canvas = new Canvas();
     }
 

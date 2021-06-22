@@ -1,3 +1,9 @@
+package sdk.view;
+
+import sdk.controller.*;
+import sdk.model.*;
+
+
 public abstract class View{
 
     protected Game game;
@@ -10,6 +16,6 @@ public abstract class View{
         world.render(this.getRenderable());
     }
 
-    abstract Renderable getRenderable();
+    abstract public Renderable getRenderable();
     abstract public void launch();
 }

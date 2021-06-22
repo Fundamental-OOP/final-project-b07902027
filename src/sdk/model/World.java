@@ -1,6 +1,10 @@
+package sdk.model;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import static java.util.Arrays.stream;
+
+import sdk.view.*;
 
 
 public abstract class World{

@@ -1,3 +1,6 @@
+package sdk.model;
+
+
 public class Coordinate{
 
     protected int x, y, speedX, speedY;
