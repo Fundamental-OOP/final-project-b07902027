@@ -4,10 +4,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import static java.util.Arrays.stream;
 
-import sdk.view.*;
 
-
-public abstract class World{
+public class World{
 
     protected final Physic physic;
     protected final List<Sprite> sprites = new CopyOnWriteArrayList<Sprite>();
@@ -17,6 +15,7 @@ public abstract class World{
         this.physic = physic;
         this.collisionHandler = collisionHandler;
         addSprites(sprites);
+        physic.initCoordinates(sprites);
     }
 
     public void addSprites(Sprite... sprites) {
@@ -40,11 +39,5 @@ public abstract class World{
 
     public List<Sprite> getSprites(){
         return sprites;
-    }
-
-    public void render(Renderable r){
-        for (Sprite sprite: this.sprites){
-            sprite.render(r);            
-        }
     }
 }

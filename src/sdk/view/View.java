@@ -4,18 +4,14 @@ import sdk.controller.*;
 import sdk.model.*;
 
 
-public abstract class View{
+public interface View{
 
-    protected Game game;
+    void setGame(Game game);
+    Game getGame();
+    Renderable getRenderable();
+    void launch();
 
-    public void setGame(Game game){
-        this.game = game;
+    default void render(World world){
+        this.getRenderable().render(world);
     }
-
-    public void render(World world){
-        world.render(this.getRenderable());
-    }
-
-    abstract public Renderable getRenderable();
-    abstract public void launch();
 }

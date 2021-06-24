@@ -1,7 +1,9 @@
 package sdk.view;
 
+import sdk.model.World;
 
 public interface Renderable{
-    int getHeight();
-    int getWidth();
+    int getFrameHeight();
+    int getFrameWidth();
+    void render(World world);
 }

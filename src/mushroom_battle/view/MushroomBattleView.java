@@ -1,20 +1,50 @@
 package mushroom_battle.view;
 
+import javax.swing.*;
+
 import sdk.view.*;
+import sdk.controller.*;
+import sdk.model.Sprite;
+import sdk.model.World;
 
 
-public class MushroomBattleView extends View{
+public class MushroomBattleView extends JFrame implements View{
 
-    private final static int MAP_WIDTH = 500;
-    private final static int MAP_HEIGHT = 400;
-    Canvas canvas;
+    private static final int WIDTH = 700;
+    private static final int HEIGHT = 400;
+    private MushroomCanvas canvas;
+    private Game game;
 
     public MushroomBattleView(){
-        this.canvas = new Canvas();
+        super("Mushroom Battle");
+        this.canvas = new MushroomCanvas();
     }
 
-    public void launch(){
+    @Override
+    public void setGame(Game game){
+        this.game = game;
+    }
 
+    @Override
+    public Game getGame(){
+        return this.game;
+    }
+
+    private void initAndShowGUI(){
+        this.canvas.setLayout(null);
+        this.setContentPane(this.canvas);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(WIDTH, HEIGHT);
+        this.setVisible(true);
+    }
+
+    @Override
+    public void launch(){
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                initAndShowGUI();
+            }
+        });
     }
 
     @Override
@@ -22,14 +52,28 @@ public class MushroomBattleView extends View{
         return this.canvas;
     }
 
-    public class Canvas implements Renderable{
+    public class MushroomCanvas extends JPanel implements Renderable{
 
-        public int getWidth(){
-            return MAP_WIDTH;
+        public MushroomCanvas(){
+            super();
         }
 
-        public int getHeight(){
-            return MAP_HEIGHT;
+        @Override
+        public int getFrameWidth(){
+            return MushroomBattleView.WIDTH;
+        }
+
+        @Override
+        public int getFrameHeight(){
+            return MushroomBattleView.HEIGHT;
+        }
+
+        @Override
+        public void render(World world){
+            for (Sprite sprite : world.getSprites()){
+                sprite.getPainter().paint();
+            }
+            this.repaint();
         }
 
     }

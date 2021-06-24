@@ -46,8 +46,10 @@ public class Game{
         while (this.running) {
             world.update();
             view.render(world);
+            //System.out.println("Finish render in gameLoop");
             this.delay();
         }
+        System.out.println("Game Finished");
     }
 
     protected void delay() {

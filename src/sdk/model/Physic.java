@@ -9,8 +9,8 @@ public abstract class Physic{
 
     public Physic(View view){
         Renderable r = view.getRenderable();
-        this.borderX = r.getWidth();
-        this.borderY = r.getHeight();
+        this.borderX = r.getFrameWidth();
+        this.borderY = r.getFrameHeight();
     }
 
     public int getBorderX(){
