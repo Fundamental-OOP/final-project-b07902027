@@ -1,17 +1,10 @@
 package sdk.view;
 
-import sdk.controller.*;
-import sdk.model.*;
-
 
 public interface View{
-
-    void setGame(Game game);
-    Game getGame();
+    void addPainters(Painter... painters);
+    void addPainter(Painter painter);
     Renderable getRenderable();
-    void launch();
-
-    default void render(World world){
-        this.getRenderable().render(world);
-    }
+    public void launch();
+    void render();
 }

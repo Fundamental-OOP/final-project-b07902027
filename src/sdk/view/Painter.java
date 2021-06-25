@@ -5,17 +5,22 @@ import sdk.model.Sprite;
 
 public abstract class Painter{
 
-    protected Renderable r;
+    protected final Renderable r;
+    protected final Sprite sprite;
 
-    public Painter(View view){
+    public Painter(View view, Sprite sprite){
         this.r = view.getRenderable();
+        this.sprite = sprite;
+        sprite.setPainter(this);
     }
 
     public Renderable getRenderable(){
         return this.r;
     }
 
-    abstract public void setSprite(Sprite sprite);
-    abstract public Sprite getSprite();
+    public Sprite getSprite(){
+        return this.sprite;
+    }
+
     abstract public void paint(); // paint Sprite on Renderable class
 }

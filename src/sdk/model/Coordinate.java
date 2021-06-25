@@ -6,30 +6,43 @@ public class Coordinate{
     protected int x, y, speedX, speedY;
 
     public Coordinate(){
-        this(0, 0, 0, 0);
+        reset(0, 0, 0, 0);
     }
 
     public Coordinate(int x, int y, int speedX, int speedY){
-        this.x = x;
-        this.y = y;
-        this.speedX = speedX;
-        this.speedY = speedY;
+        reset(x, y, speedX, speedY);
     }
 
-    public void resetX(int x){
+    public void setX(int x){
         this.x = x;
     }
 
-    public void resetY(int y){
+    public void setY(int y){
         this.y = y;
     }
 
-    public void resetSpeedX(int speedX){
+    public void setSpeedX(int speedX){
         this.speedX = speedX;
     }
 
-    public void resetSpeedY(int speedY){
+    public void setSpeedY(int speedY){
         this.speedY = speedY;
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public int getSpeedX(){
+        return speedX;
+    }
+
+    public int getSpeedY(){
+        return speedY;
     }
 
     public void reset(int x, int y, int speedX, int speedY){

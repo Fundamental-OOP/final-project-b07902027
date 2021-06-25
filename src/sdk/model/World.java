@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import static java.util.Arrays.stream;
 
 
-public class World{
+public abstract class World{
 
     protected final Physic physic;
     protected final List<Sprite> sprites = new CopyOnWriteArrayList<Sprite>();
@@ -15,7 +15,7 @@ public class World{
         this.physic = physic;
         this.collisionHandler = collisionHandler;
         addSprites(sprites);
-        physic.initCoordinates(sprites);
+        this.initSprites(sprites);
     }
 
     public void addSprites(Sprite... sprites) {
@@ -40,4 +40,6 @@ public class World{
     public List<Sprite> getSprites(){
         return sprites;
     }
+
+    protected abstract void initSprites(Sprite... sprites);
 }

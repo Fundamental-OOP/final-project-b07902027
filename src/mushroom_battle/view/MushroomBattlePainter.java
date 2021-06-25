@@ -10,33 +10,27 @@ import sdk.view.*;
 
 public class MushroomBattlePainter extends Painter{
 
-    private Sprite sprite;
+    private final Coordinate coordinate;
     String imagePath;
-
     JPanel canvas, unit;
 
-    public MushroomBattlePainter(View view, String imagePath){
-        super(view);
+    public MushroomBattlePainter(View view, String imagePath, Sprite sprite){
+        super(view, sprite);
+        this.coordinate = sprite.getCoordinate();
         this.imagePath = imagePath;
-        this.unit = createUnit();
-        ((JPanel) getRenderable()).add(unit);
+
+        this.canvas = (JPanel) this.getRenderable();
+        this.unit = createUnit(coordinate.getX(), coordinate.getY(), sprite.getWidth(), sprite.getHeight());
+        this.canvas.add(unit);
     }
 
-    private JPanel createUnit(){
+    private JPanel createUnit(int x, int y, int width, int height){
+        System.out.printf("Create unit: %d, %d, %d, %d\n", x, y, width, height);
         unit = new JPanel();
         unit.setBackground(Color.BLUE);
-        unit.setLocation(0, 0);
-        unit.setSize(50,50);
+        unit.setLocation(x, y);
+        unit.setSize(width, height);
         return unit;
-    }
-
-    @Override
-    public Sprite getSprite(){
-        return this.sprite;
-    }
-
-    public void setSprite(Sprite sprite){
-        this.sprite = sprite;
     }
 
     @Override
@@ -45,7 +39,10 @@ public class MushroomBattlePainter extends Painter{
         if (this.sprite == null){
             throw new RuntimeException("Sprite not set in Painter before calling `paint`.");
         }
-
-        // unit.setLocation(0, 0);
+        if (sprite.getName().equals("Knife")){
+            this.unit.setBackground(Color.RED);
+        }
+        this.unit.setLocation(coordinate.getX(), coordinate.getY());
+        this.unit.setSize(sprite.getWidth(), sprite.getHeight());
     }
 }

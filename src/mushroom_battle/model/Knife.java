@@ -1,13 +1,16 @@
 package mushroom_battle.model;
 
 import sdk.model.*;
-import sdk.view.Painter;
 
 
 public class Knife extends Sprite {
 
-    public Knife(Painter painter, Coordinate coordinate){
-        super(painter, coordinate);
+    public Knife(Coordinate coordinate){
+        super("Knife", coordinate, 20, 20);
+    }
+
+    public Knife(Coordinate coordinate, int width, int height){
+        super("Knife", coordinate, width, height);
     }
 
     @Override

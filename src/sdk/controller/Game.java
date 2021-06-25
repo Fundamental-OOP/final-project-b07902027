@@ -45,8 +45,7 @@ public class Game{
         this.running = true;
         while (this.running) {
             world.update();
-            view.render(world);
-            //System.out.println("Finish render in gameLoop");
+            view.render();
             this.delay();
         }
         System.out.println("Game Finished");

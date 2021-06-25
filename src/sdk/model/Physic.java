@@ -1,16 +1,13 @@
 package sdk.model;
 
-import sdk.view.*;
-
 
 public abstract class Physic{
 
     int borderX, borderY;
 
-    public Physic(View view){
-        Renderable r = view.getRenderable();
-        this.borderX = r.getFrameWidth();
-        this.borderY = r.getFrameHeight();
+    public Physic(int borderX, int borderY){
+        this.borderX = borderX;
+        this.borderY = borderY;
     }
 
     public int getBorderX(){
@@ -21,5 +18,5 @@ public abstract class Physic{
         return this.borderY;
     }
 
-    public abstract void initCoordinates(Sprite... sprites);
+    abstract public void update(Sprite sprite);
 }

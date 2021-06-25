@@ -2,41 +2,51 @@ package mushroom_battle.view;
 
 import javax.swing.*;
 
-import sdk.view.*;
-import sdk.controller.*;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import static java.util.Arrays.stream;
+
+import java.awt.Color;
+
+import sdk.view.Painter;
+import sdk.view.View;
+import sdk.view.Renderable;
 import sdk.model.Sprite;
 import sdk.model.World;
 
 
 public class MushroomBattleView extends JFrame implements View{
 
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 400;
+    public static final int F_WIDTH = 800;
+    public static final int F_HEIGHT = 500;
     private MushroomCanvas canvas;
-    private Game game;
+
+    protected final List<Painter> painters = new CopyOnWriteArrayList<Painter>();
 
     public MushroomBattleView(){
         super("Mushroom Battle");
         this.canvas = new MushroomCanvas();
     }
 
-    @Override
-    public void setGame(Game game){
-        this.game = game;
-    }
-
-    @Override
-    public Game getGame(){
-        return this.game;
-    }
-
     private void initAndShowGUI(){
         this.canvas.setLayout(null);
+        this.canvas.setBackground(Color.LIGHT_GRAY);
         this.setContentPane(this.canvas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(WIDTH, HEIGHT);
+        this.setSize(F_WIDTH, F_HEIGHT);
         this.setVisible(true);
     }
+
+    @Override
+    public void addPainters(Painter... painters) {
+        stream(painters).forEach(this::addPainter);
+    }
+
+    @Override
+    public void addPainter(Painter painter) {
+        painters.add(painter);
+    }
+    
 
     @Override
     public void launch(){
@@ -52,6 +62,13 @@ public class MushroomBattleView extends JFrame implements View{
         return this.canvas;
     }
 
+    @Override 
+    public void render(){
+        for (Painter painter: this.painters){
+            painter.paint();
+        }
+    }
+
     public class MushroomCanvas extends JPanel implements Renderable{
 
         public MushroomCanvas(){
@@ -60,12 +77,12 @@ public class MushroomBattleView extends JFrame implements View{
 
         @Override
         public int getFrameWidth(){
-            return MushroomBattleView.WIDTH;
+            return MushroomBattleView.F_WIDTH;
         }
 
         @Override
         public int getFrameHeight(){
-            return MushroomBattleView.HEIGHT;
+            return MushroomBattleView.F_HEIGHT;
         }
 
         @Override
