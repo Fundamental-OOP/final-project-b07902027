@@ -1,15 +1,13 @@
 package mushroom_battle.model;
 
 import sdk.model.*;
-import sdk.view.View;
-import mushroom_battle.view.MushroomBattlePainter;
+import sdk.view.Painter;
 
 
 public class Knife extends Sprite {
-    
 
-    public Knife(View view, String imagePath){
-        super(new MushroomBattlePainter(view, imagePath), new Coordinate());
+    public Knife(Painter painter, Coordinate coordinate){
+        super(painter, coordinate);
     }
 
     @Override
