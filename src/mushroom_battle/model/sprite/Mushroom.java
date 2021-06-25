@@ -1,4 +1,4 @@
-package mushroom_battle.model;
+package mushroom_battle.model.sprite;
 
 import sdk.model.Sprite;
 import sdk.model.Coordinate;

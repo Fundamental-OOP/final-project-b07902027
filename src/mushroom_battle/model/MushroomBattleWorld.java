@@ -1,6 +1,7 @@
 package mushroom_battle.model;
 
 import sdk.model.*;
+import mushroom_battle.model.sprite.*;
 
 
 public class MushroomBattleWorld extends World{

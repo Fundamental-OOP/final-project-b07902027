@@ -2,6 +2,7 @@ import sdk.model.*;
 import sdk.view.*;
 import sdk.controller.*;
 import mushroom_battle.model.*;
+import mushroom_battle.model.sprite.*;
 import mushroom_battle.view.*;
 import mushroom_battle.controller.*;
 
