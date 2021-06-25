@@ -1,6 +1,6 @@
 package mushroom_battle.view;
 
-import java.awt.*;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -27,7 +27,6 @@ public class MushroomBattlePainter extends Painter{
     private JPanel createUnit(int x, int y, int width, int height){
         System.out.printf("Create unit: %d, %d, %d, %d\n", x, y, width, height);
         unit = new JPanel();
-        unit.setBackground(Color.BLUE);
         unit.setLocation(x, y);
         unit.setSize(width, height);
         return unit;
@@ -39,8 +38,13 @@ public class MushroomBattlePainter extends Painter{
         if (this.sprite == null){
             throw new RuntimeException("Sprite not set in Painter before calling `paint`.");
         }
+        // only when it's in development
         if (sprite.getName().equals("Knife")){
             this.unit.setBackground(Color.RED);
+        } else if (sprite.getName().equals("Mushroom")) {
+            this.unit.setBackground(Color.BLUE);
+        } else if (sprite.getName().equals("Ground")){
+            this.unit.setBackground(Color.GREEN);
         }
         this.unit.setLocation(coordinate.getX(), coordinate.getY());
         this.unit.setSize(sprite.getWidth(), sprite.getHeight());

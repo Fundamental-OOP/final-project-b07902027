@@ -16,10 +16,11 @@ public class Main{
         Knife kf2 = new Knife(new Coordinate());
         Mushroom m1 = new Mushroom(new Coordinate(), kf1);
         Mushroom m2 = new Mushroom(new Coordinate(), kf2);
+        Ground ground = new Ground(new Coordinate(), MushroomBattleView.F_WIDTH,(int) (MushroomBattleView.F_HEIGHT / 4));
+
         CollisionHandler collisionHandler = new MushroomBattleCollisionHandler();
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
-        World world = new MushroomBattleWorld(physic, collisionHandler, kf1, kf2, m1, m2);
-
+        World world = new MushroomBattleWorld(physic, collisionHandler, kf1, kf2, m1, m2, ground);
 
         // view
         View view = new MushroomBattleView(); 
@@ -27,7 +28,8 @@ public class Main{
         Painter kf2Painter = new MushroomBattlePainter(view, "src/knife.png", kf2);
         Painter m1Painter = new MushroomBattlePainter(view, "src/mushroom.png", m1);
         Painter m2Painter = new MushroomBattlePainter(view, "src/mushroom.png", m2);
-        view.addPainters(kf1Painter, kf2Painter, m1Painter, m2Painter);
+        Painter groundPainter = new MushroomBattlePainter(view, "src/ground.png", ground);
+        view.addPainters(kf1Painter, kf2Painter, m1Painter, m2Painter, groundPainter);
 
         // game
         int fps = 60;
