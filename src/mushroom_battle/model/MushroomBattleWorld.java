@@ -21,6 +21,7 @@ public class MushroomBattleWorld extends World{
 
     @Override
     protected void initSprites(Sprite... sprites){
+        // TODO: Use type initiator
         try{
             this.kf1 = (Knife) sprites[0];
             this.kf2 = (Knife) sprites[1];

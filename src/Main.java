@@ -17,6 +17,7 @@ public class Main{
         Mushroom m1 = new Mushroom(kf1);
         Mushroom m2 = new Mushroom(kf2);
         Ground ground = new Ground();
+        //Ground ground2 = new Ground(300, 275, 200, 50);
         CollisionHandler collisionHandler = new MushroomBattleCollisionHandler();
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
         World world = new MushroomBattleWorld(physic, collisionHandler, kf1, kf2, m1, m2, ground);
@@ -28,6 +29,7 @@ public class Main{
         Painter m1Painter = new MushroomBattlePainter(view, "src/mushroom.png", m1);
         Painter m2Painter = new MushroomBattlePainter(view, "src/mushroom.png", m2);
         Painter groundPainter = new MushroomBattlePainter(view, "src/ground.png", ground);
+        // Painter ground2Painter = new MushroomBattlePainter(view, "src/ground2.png", ground2);
         view.addPainters(kf1Painter, kf2Painter, m1Painter, m2Painter, groundPainter);
 
         // game

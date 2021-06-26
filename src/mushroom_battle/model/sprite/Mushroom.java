@@ -3,7 +3,7 @@ package mushroom_battle.model.sprite;
 
 public class Mushroom extends ActiveSprite{
 
-    public final static int INIT_X_SPEED = 2;
+    public final static int INIT_X_SPEED = 3;
     public final static int INIT_Y_SPEED = -15;
     public final static int WIDTH = 40, HEIGHT = 40;
 
