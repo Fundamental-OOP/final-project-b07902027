@@ -14,6 +14,10 @@ public class MushroomBattleWorld extends World{
         super(physic, collisionHandler, sprites);
     }
 
+    public Mushroom getMushroom(int mushroomIdx){
+        return (mushroomIdx == 1) ? m1 : m2;
+    }
+
     @Override
     protected void initSprites(Sprite... sprites){
         try{

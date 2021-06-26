@@ -23,4 +23,8 @@ public class Mushroom extends Sprite {
     public void update(){
         this.world.getPhysic().update(this);
     }
+
+    public void jump(){
+        this.visible = !this.visible;
+    }
 }

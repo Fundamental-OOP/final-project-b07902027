@@ -9,6 +9,7 @@ public abstract class Sprite{
     protected World world;
     protected final Coordinate coordinate;
     protected Painter painter;
+    public boolean visible = true;
 
     public Sprite(String name, Coordinate coordinate, int width, int height){
         this.name = name;
