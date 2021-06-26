@@ -17,7 +17,7 @@ public class Game{
         this.world  = world;
         this.view = view;
         this.fps = fps;
-        this.msDelta = (long) (1 / fps * 1000);
+        this.msDelta = (long) (1.0 / fps * 1000);
     }
 
     public void setView(View view){

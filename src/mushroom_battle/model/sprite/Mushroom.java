@@ -21,6 +21,6 @@ public class Mushroom extends Sprite {
 
     @Override
     public void update(){
-        //System.out.printf("Mushroom update\n");
+        this.world.getPhysic().update(this);
     }
 }

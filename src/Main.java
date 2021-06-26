@@ -17,7 +17,6 @@ public class Main{
         Mushroom m1 = new Mushroom(new Coordinate(), kf1);
         Mushroom m2 = new Mushroom(new Coordinate(), kf2);
         Ground ground = new Ground(new Coordinate(), MushroomBattleView.F_WIDTH,(int) (MushroomBattleView.F_HEIGHT / 4));
-
         CollisionHandler collisionHandler = new MushroomBattleCollisionHandler();
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
         World world = new MushroomBattleWorld(physic, collisionHandler, kf1, kf2, m1, m2, ground);

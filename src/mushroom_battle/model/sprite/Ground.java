@@ -11,6 +11,7 @@ public class Ground extends Sprite{
 
     @Override
     public void update() {
+        // Ground doesn't need any update
     }
 
 }

@@ -15,6 +15,6 @@ public class Knife extends Sprite {
 
     @Override
     public void update(){
-        //System.out.printf("Knife update\n");
+        //this.world.getPhysic().update(this);
     }
 }

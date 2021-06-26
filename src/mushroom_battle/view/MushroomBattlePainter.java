@@ -25,7 +25,6 @@ public class MushroomBattlePainter extends Painter{
     }
 
     private JPanel createUnit(int x, int y, int width, int height){
-        System.out.printf("Create unit: %d, %d, %d, %d\n", x, y, width, height);
         unit = new JPanel();
         unit.setLocation(x, y);
         unit.setSize(width, height);
@@ -48,5 +47,6 @@ public class MushroomBattlePainter extends Painter{
         }
         this.unit.setLocation(coordinate.getX(), coordinate.getY());
         this.unit.setSize(sprite.getWidth(), sprite.getHeight());
+        // TODO: build special painter for each sprite
     }
 }

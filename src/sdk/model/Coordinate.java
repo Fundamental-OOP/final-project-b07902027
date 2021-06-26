@@ -3,14 +3,14 @@ package sdk.model;
 
 public class Coordinate{
 
-    protected int x, y, speedX, speedY;
+    protected int x, y, XSpeed, YSpeed;
 
     public Coordinate(){
         reset(0, 0, 0, 0);
     }
 
-    public Coordinate(int x, int y, int speedX, int speedY){
-        reset(x, y, speedX, speedY);
+    public Coordinate(int x, int y, int XSpeed, int YSpeed){
+        reset(x, y, XSpeed, YSpeed);
     }
 
     public void setX(int x){
@@ -21,12 +21,12 @@ public class Coordinate{
         this.y = y;
     }
 
-    public void setSpeedX(int speedX){
-        this.speedX = speedX;
+    public void setXSpeed(int XSpeed){
+        this.XSpeed = XSpeed;
     }
 
-    public void setSpeedY(int speedY){
-        this.speedY = speedY;
+    public void setYSpeed(int YSpeed){
+        this.YSpeed = YSpeed;
     }
 
     public int getX(){
@@ -37,18 +37,18 @@ public class Coordinate{
         return y;
     }
 
-    public int getSpeedX(){
-        return speedX;
+    public int getXSpeed(){
+        return XSpeed;
     }
 
-    public int getSpeedY(){
-        return speedY;
+    public int getYSpeed(){
+        return YSpeed;
     }
 
-    public void reset(int x, int y, int speedX, int speedY){
+    public void reset(int x, int y, int XSpeed, int YSpeed){
         this.x = x;
         this.y = y;
-        this.speedX = speedX;
-        this.speedY = speedY;
+        this.XSpeed = XSpeed;
+        this.YSpeed = YSpeed;
     }
 }
