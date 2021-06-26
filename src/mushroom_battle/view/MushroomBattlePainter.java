@@ -1,7 +1,7 @@
 package mushroom_battle.view;
 
 import java.awt.Color;
-
+import java.awt.Rectangle;
 import javax.swing.JPanel;
 
 import sdk.model.*;
@@ -10,17 +10,17 @@ import sdk.view.*;
 
 public class MushroomBattlePainter extends Painter{
 
-    private final Coordinate coordinate;
+    Rectangle spriteBody;
     String imagePath;
     JPanel canvas, unit;
 
-    public MushroomBattlePainter(View view, String imagePath, Sprite sprite){
+    public MushroomBattlePainter(View view, String imagePath, RectangleSprite sprite){
         super(view, sprite);
-        this.coordinate = sprite.getCoordinate();
+        this.spriteBody = sprite;
         this.imagePath = imagePath;
 
         this.canvas = (JPanel) this.getRenderable();
-        this.unit = createUnit(coordinate.getX(), coordinate.getY(), sprite.getWidth(), sprite.getHeight());
+        this.unit = createUnit(spriteBody.x, spriteBody.y, spriteBody.width, spriteBody.height);
         this.canvas.add(unit);
     }
 
@@ -37,6 +37,7 @@ public class MushroomBattlePainter extends Painter{
         if (this.sprite == null){
             throw new RuntimeException("Sprite not set in Painter before calling `paint`.");
         }
+
         // only when it's in development
         if (sprite.getName().equals("Knife")){
             this.unit.setBackground(Color.RED);
@@ -45,9 +46,10 @@ public class MushroomBattlePainter extends Painter{
         } else if (sprite.getName().equals("Ground")){
             this.unit.setBackground(Color.GREEN);
         }
-        this.unit.setLocation(coordinate.getX(), coordinate.getY());
-        this.unit.setSize(sprite.getWidth(), sprite.getHeight());
-        this.unit.setVisible(sprite.visible);
+        
+        this.unit.setLocation(spriteBody.x, spriteBody.y);
+        this.unit.setSize(spriteBody.width, spriteBody.height);
+        this.unit.setVisible(sprite.isVisible());
         // TODO: build special painter for each sprite
     }
 }

@@ -3,7 +3,7 @@ package sdk.model;
 
 public abstract class Physic{
 
-    int borderX, borderY;
+    protected int borderX, borderY;
 
     public Physic(int borderX, int borderY){
         this.borderX = borderX;

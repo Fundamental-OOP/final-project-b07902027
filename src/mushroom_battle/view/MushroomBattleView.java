@@ -57,10 +57,10 @@ public class MushroomBattleView extends JFrame implements View{
             public void keyPressed(KeyEvent keyEvent) {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_SPACE:
-                        game.jump(M1);
+                        game.pushButton(M1);
                         break;
                     case KeyEvent.VK_ENTER:
-                        game.jump(M2);
+                        game.pushButton(M2);
                         break;
                 }
             }

@@ -31,8 +31,14 @@ public abstract class World{
         return this.physic;
     }
 
+    public CollisionHandler getCollisionHandler(){
+        return this.collisionHandler;
+    }
+
     public void update() {
-        for (Sprite sprite : this.sprites) {
+        for (Sprite sprite: this.sprites) {
+            physic.update(sprite);
+            collisionHandler.handle(sprite, this.sprites);
             sprite.update();
         }
     }

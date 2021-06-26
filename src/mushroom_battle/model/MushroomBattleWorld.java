@@ -2,6 +2,7 @@ package mushroom_battle.model;
 
 import sdk.model.*;
 import mushroom_battle.model.sprite.*;
+import mushroom_battle.view.MushroomBattleView;
 
 
 public class MushroomBattleWorld extends World{
@@ -37,34 +38,22 @@ public class MushroomBattleWorld extends World{
 
     protected void initCoordinates(){
 
-        m1.getCoordinate().reset(
-            0, 
-            physic.getBorderY() - ground.getHeight() - m1.getHeight(),
-            Mushroom.INIT_SPEED,
-            0
-        );
+        m1.setLocation(0, (int) (physic.getBorderY() - ground.getHeight() - m1.getHeight()));
+        m1.setSpeed(Mushroom.INIT_X_SPEED, 0);
 
-        m2.getCoordinate().reset(
-            physic.getBorderX() - m2.getWidth(), 
-            physic.getBorderY() - ground.getHeight() - m2.getHeight(), 
-            -Mushroom.INIT_SPEED, 
-            0
-        );
+        m2.setLocation((int) (physic.getBorderX() - m2.getWidth()), 
+                       (int) (physic.getBorderY() - ground.getHeight() - m2.getHeight()));
+        m2.setSpeed(-Mushroom.INIT_X_SPEED, 0);
 
-        kf1.getCoordinate().reset(
-            m1.getCoordinate().getX() + 10,
-            m1.getCoordinate().getY() - kf1.getHeight(),
-            Mushroom.INIT_SPEED,
-            0
-        );
+        kf1.setLocation(m1.x + 10, (int) (m1.y - kf1.getHeight()));
+        kf1.setSpeed(Mushroom.INIT_X_SPEED, 0);
 
-        kf2.getCoordinate().reset(
-            m2.getCoordinate().getX() + 10,
-            m2.getCoordinate().getY() - kf2.getHeight(),
-            -Mushroom.INIT_SPEED, 
-            0
-        );
+        kf2.setLocation(m2.x + 10, (int) (m2.y - kf2.getHeight()));
+        kf2.setSpeed(-Mushroom.INIT_X_SPEED,  0);
 
-        ground.getCoordinate().reset(0, physic.getBorderY() - ground.getHeight(), 0, 0);
+        // TODO: Fix the 10
+        ground.setBounds(0, physic.getBorderY() - (int) ground.getHeight(), 
+                         MushroomBattleView.F_WIDTH,(int) (MushroomBattleView.F_HEIGHT / 4));
+
     }
 }

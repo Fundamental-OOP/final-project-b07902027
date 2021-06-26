@@ -12,7 +12,7 @@ public class MushroomBattleGame extends Game{
         view.setGame(this);
     }
 
-    public void jump(int mushroomIdx){
-        ((MushroomBattleWorld) this.world).getMushroom(mushroomIdx).jump();
+    public void pushButton(int mushroomIdx){
+        ((MushroomBattleWorld) this.world).getMushroom(mushroomIdx).pushButton();
     }
 }
