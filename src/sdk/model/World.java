@@ -9,11 +9,11 @@ public abstract class World{
 
     protected final Physic physic;
     protected final List<Sprite> sprites = new CopyOnWriteArrayList<Sprite>();
-    protected final CollisionHandler collisionHandler;
+    protected final CollisionHandlerCollector collisionHandlerCollector;
 
-    public World(Physic physic, CollisionHandler collisionHandler, Sprite... sprites) {
+    public World(Physic physic, CollisionHandlerCollector collector, Sprite... sprites) {
         this.physic = physic;
-        this.collisionHandler = collisionHandler;
+        this.collisionHandlerCollector = collector;
         addSprites(sprites);
         this.initSprites(sprites);
     }
@@ -31,14 +31,14 @@ public abstract class World{
         return this.physic;
     }
 
-    public CollisionHandler getCollisionHandler(){
-        return this.collisionHandler;
+    public CollisionHandlerCollector getCollisionHandlerCollector(){
+        return this.collisionHandlerCollector;
     }
 
     public void update() {
         for (Sprite sprite: this.sprites) {
             physic.update(sprite);
-            collisionHandler.handle(sprite, this.sprites);
+            collisionHandlerCollector.handle(sprite, this.sprites);
             sprite.update();
         }
     }

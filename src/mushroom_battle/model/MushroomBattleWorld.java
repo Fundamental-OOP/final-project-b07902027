@@ -11,8 +11,8 @@ public class MushroomBattleWorld extends World{
     private Mushroom m1, m2;
     private Ground ground;
 
-    public MushroomBattleWorld(Physic physic, CollisionHandler collisionHandler, Sprite... sprites){
-        super(physic, collisionHandler, sprites);
+    public MushroomBattleWorld(Physic physic, CollisionHandlerCollector collector, Sprite... sprites){
+        super(physic, collector, sprites);
     }
 
     public Mushroom getMushroom(int mushroomIdx){

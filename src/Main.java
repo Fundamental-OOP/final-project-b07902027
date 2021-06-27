@@ -21,9 +21,11 @@ public class Main{
         m2.setKnife(kf2);
         Ground ground = new Ground();
         //Ground ground2 = new Ground(300, 275, 200, 50);
-        CollisionHandler collisionHandler = new MushroomBattleCollisionHandler();
+        CollisionHandlerCollector collector = new CollisionHandlerCollector(
+            new GravityCollisionHandler()
+        );
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
-        World world = new MushroomBattleWorld(physic, collisionHandler, kf1, kf2, m1, m2, ground);
+        World world = new MushroomBattleWorld(physic, collector, kf1, kf2, m1, m2, ground);
 
         // view
         View view = new MushroomBattleView(); 

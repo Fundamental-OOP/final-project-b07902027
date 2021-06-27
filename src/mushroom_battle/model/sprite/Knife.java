@@ -1,7 +1,6 @@
 package mushroom_battle.model.sprite;
 
 import mushroom_battle.model.KnifeOwner;
-import sdk.model.Sprite;
 
 
 public class Knife extends ActiveSprite{
