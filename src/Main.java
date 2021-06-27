@@ -10,12 +10,15 @@ import mushroom_battle.controller.*;
 public class Main{
     public static void main(String[] args){
 
-    
+        // TODO: modify coordinate, width, height initialization to Constructor
+
         // model
         Knife kf1 = new Knife();
         Knife kf2 = new Knife();
-        Mushroom m1 = new Mushroom(kf1);
-        Mushroom m2 = new Mushroom(kf2);
+        Mushroom m1 = new Mushroom();
+        Mushroom m2 = new Mushroom();
+        m1.setKnife(kf1);
+        m2.setKnife(kf2);
         Ground ground = new Ground();
         //Ground ground2 = new Ground(300, 275, 200, 50);
         CollisionHandler collisionHandler = new MushroomBattleCollisionHandler();

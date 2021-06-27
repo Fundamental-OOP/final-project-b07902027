@@ -1,7 +1,8 @@
 package mushroom_battle.model.sprite;
 
+import mushroom_battle.model.KnifeOwner;
 
-public class Mushroom extends ActiveSprite{
+public class Mushroom extends ActiveSprite implements KnifeOwner{
 
     public final static int INIT_X_SPEED = 3;
     public final static int INIT_Y_SPEED = -15;
@@ -9,18 +10,43 @@ public class Mushroom extends ActiveSprite{
 
     private Knife knife;
 
-    public Mushroom(Knife knife){
+    public Mushroom(){
         super("Mushroom", 0, 0, WIDTH, HEIGHT, INIT_X_SPEED, 0);
-        this.knife = knife;
     }
 
-    public Mushroom(int x, int y, int width, int height, int xSpeed, int ySpeed, Knife knife){
+    public Mushroom(int x, int y, int width, int height, int xSpeed, int ySpeed){
         super("Mushroom", x, y, width, height, xSpeed, ySpeed);
-        this.knife = knife;
     }
 
     @Override
     public void update(){
+    }
+
+    @Override
+    public void setKnife(Knife knife){
+        this.knife = knife;
+        knife.setOwner(this);
+    }
+
+    @Override
+    public boolean hasKnife(){
+        return this.knife != null;
+        // return false;
+    }
+
+    @Override
+    public Knife getKnife(){
+        if (this.knife == null){
+            throw new RuntimeException(getName() + " doesn't have knife but was required one.\n");
+        }
+        return this.knife;
+    }
+
+    @Override
+    public void throwKnife(){
+        // TODO: set knife's coordinate here
+        this.knife.thrown();
+        this.knife = null;
     }
 
     public void pushButton(){
@@ -31,19 +57,10 @@ public class Mushroom extends ActiveSprite{
         }
     }
 
-    public boolean hasKnife(){
-        // TODO: return this.knife == null;
-        return false;
-    }
-
     public void jump(){
         if (!this.isFalling){
             this.isFalling = true;
             this.ySpeed = INIT_Y_SPEED;
         }
-    }
-
-    public void throwKnife(){
-
     }
 }
