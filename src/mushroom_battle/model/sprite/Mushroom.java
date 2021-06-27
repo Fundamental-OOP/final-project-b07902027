@@ -7,7 +7,8 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
     public final static int INIT_X_SPEED = 3;
     public final static int INIT_Y_SPEED = -15;
     public final static int WIDTH = 40, HEIGHT = 40;
-
+    
+    private boolean alive = true;
     private Knife knife;
 
     public Mushroom(){
@@ -61,5 +62,13 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
             this.isFalling = true;
             this.ySpeed = INIT_Y_SPEED;
         }
+    }
+
+    public void killed(){
+        this.alive = false;
+    }
+
+    public boolean isDead(){
+        return !this.alive;
     }
 }

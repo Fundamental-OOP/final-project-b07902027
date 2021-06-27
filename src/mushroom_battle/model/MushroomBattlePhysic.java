@@ -33,6 +33,7 @@ public class MushroomBattlePhysic extends Physic{
         }
 
         // y sprite
+        // TODO: slow down y updating
         if (sprite.isFalling()){
             sprite.y = sprite.y + sprite.getYSpeed();
             sprite.setYSpeed(sprite.getYSpeed() + GRAVITY);

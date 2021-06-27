@@ -28,16 +28,12 @@ public class KnifeCollisionHandler extends CollisionHandler{
         
         for (Sprite otherSprite: otherSprites){
 
-            if (otherSprite instanceof Ground && 
-                !knife.isFalling && 
-                knife.getThrower() != null &&
-                ((Ground) otherSprite).y - knife.height == knife.y)
-            {
-                knife.setThrower(null);
-                knife.setLocation(knife.x, ((Ground) otherSprite).y - knife.height);
-                knife.xSpeed = 0;
-                knife.ySpeed = 0;
-                knife.isFalling = false;
+            if (otherSprite instanceof Ground){
+                knifeHitGroundHandler(knife, (Ground) otherSprite);
+            }
+            else if (otherSprite instanceof Mushroom){
+                knifePickedUpHandler(knife, (Mushroom) otherSprite);
+                knifeKilledMushroomHandler(knife, (Mushroom) otherSprite);
             }
             // if knife collision with ground: setOwner = null
             // TODO: handle knife collision with mushroom
@@ -48,5 +44,33 @@ public class KnifeCollisionHandler extends CollisionHandler{
 
     public void handle(ActiveSprite sprite, Ground ground){
         
+    }
+
+    private void knifeHitGroundHandler(Knife knife, Ground ground){
+        if (!knife.isFalling && knife.getThrower() != null && ground.y - knife.height == knife.y){
+            knife.setThrower(null);
+            knife.xSpeed = 0;
+            knife.ySpeed = 0;
+            knife.isFalling = false;
+        }
+    }
+
+    private void knifePickedUpHandler(Knife knife, Mushroom mushroom){
+        if (knife.getOwner() == null &&
+            knife.getThrower() == null &&
+            !mushroom.hasKnife() &&
+            knife.intersects(mushroom))
+        {
+            mushroom.setKnife(knife);
+        }
+    }
+
+    private void knifeKilledMushroomHandler(Knife knife, Mushroom mushroom){
+        if (knife.getThrower() != null &&
+            knife.getThrower() != mushroom &&
+            knife.intersects(mushroom))
+        {
+            mushroom.killed();
+        }
     }
 }

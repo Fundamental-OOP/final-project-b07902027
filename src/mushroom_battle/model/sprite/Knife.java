@@ -24,6 +24,10 @@ public class Knife extends ActiveSprite{
         return this.owner != null;
     }
 
+    public Mushroom getOwner(){
+        return this.owner;
+    }
+
     public Mushroom getThrower(){
         return this.thrower;
     }

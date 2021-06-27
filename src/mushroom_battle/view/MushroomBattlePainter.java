@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import sdk.model.*;
 import sdk.view.*;
+import mushroom_battle.model.sprite.*;
 
 
 public class MushroomBattlePainter extends Painter{
@@ -41,15 +42,23 @@ public class MushroomBattlePainter extends Painter{
         // only when it's in development
         if (sprite.getName().equals("Knife")){
             this.unit.setBackground(Color.RED);
-        } else if (sprite.getName().equals("Mushroom")) {
-            this.unit.setBackground(Color.BLUE);
+        } else if (sprite.getName().equals("Mushroom")){
+            if (((Mushroom) sprite).isDead()){
+                this.unit.setBackground(Color.BLACK);
+            } else if (((Mushroom) sprite).hasKnife()){
+                this.unit.setBackground(Color.BLUE);
+            }
+            else{
+                this.unit.setBackground(Color.CYAN);
+            }
         } else if (sprite.getName().equals("Ground")){
             this.unit.setBackground(Color.GREEN);
         }
         
         this.unit.setLocation(spriteBody.x, spriteBody.y);
         this.unit.setSize(spriteBody.width, spriteBody.height);
-        this.unit.setVisible(sprite.isVisible());
+        //this.unit.setVisible(sprite.isVisible());
+        this.unit.setVisible(true);
         // TODO: build special painter for each sprite
     }
 }
