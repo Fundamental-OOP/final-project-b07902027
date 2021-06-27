@@ -13,8 +13,8 @@ public class Main{
         // TODO: modify coordinate, width, height initialization to Constructor
 
         // model
-        Knife kf1 = new Knife();
-        Knife kf2 = new Knife();
+        Knife kf1 = new Knife(0);
+        Knife kf2 = new Knife(180);
         Mushroom m1 = new Mushroom();
         Mushroom m2 = new Mushroom();
         m1.setKnife(kf1);
