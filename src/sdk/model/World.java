@@ -36,11 +36,12 @@ public abstract class World{
     }
 
     public void update() {
-        for (Sprite sprite: this.sprites) {
+        for (Sprite sprite: this.sprites) 
             physic.update(sprite);
+        for (Sprite sprite: this.sprites)
             collisionHandlerCollector.handle(sprite, this.sprites);
+        for (Sprite sprite: this.sprites)
             sprite.update();
-        }
     }
 
     public List<Sprite> getSprites(){
