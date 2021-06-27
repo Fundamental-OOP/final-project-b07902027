@@ -22,7 +22,8 @@ public class Main{
         Ground ground = new Ground();
         //Ground ground2 = new Ground(300, 275, 200, 50);
         CollisionHandlerCollector collector = new CollisionHandlerCollector(
-            new GravityCollisionHandler()
+            new GravityCollisionHandler(),
+            new KnifeCollisionHandler()
         );
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
         World world = new MushroomBattleWorld(physic, collector, kf1, kf2, m1, m2, ground);

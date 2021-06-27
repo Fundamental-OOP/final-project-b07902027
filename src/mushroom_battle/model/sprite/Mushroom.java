@@ -44,7 +44,6 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
 
     @Override
     public void throwKnife(){
-        // TODO: set knife's coordinate here
         this.knife.thrown();
         this.knife = null;
     }

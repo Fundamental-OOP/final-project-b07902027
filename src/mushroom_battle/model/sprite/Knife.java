@@ -7,7 +7,7 @@ public class Knife extends ActiveSprite{
 
     public final static int THROWING_RADIUS = 30;
     public final static int WIDTH = 20, HEIGHT = 20;
-    private Mushroom owner;
+    private Mushroom owner, thrower;
     private KnifeDirection throwingDirection;
 
     public Knife(int initAngle){
@@ -24,16 +24,27 @@ public class Knife extends ActiveSprite{
         return this.owner != null;
     }
 
+    public Mushroom getThrower(){
+        return this.thrower;
+    }
+
+    public void setThrower(Mushroom thrower){
+        this.thrower = thrower;
+    }
+
     public void setOwner(Mushroom owner){
         this.owner = owner;
-        this.visible = false;
+        if (owner != null)
+            this.visible = false;
     }
 
     public void thrown(){
+        this.thrower = this.owner;
+        this.owner = null;
         this.isFalling = true;
-        this.setLocation(owner.x + owner.width / 2, owner.y + owner.height / 2);
+        this.setLocation(thrower.x + (thrower.width - this.width) / 2, 
+                         thrower.y + (thrower.height - this.height) / 2);
         this.setSpeed(throwingDirection.getX(), throwingDirection.getY());
-        // this.owner = null;
         this.visible = true;
     }
 

@@ -13,6 +13,10 @@ public class GravityCollisionHandler extends CollisionHandler{
         super(SCHEDULING_IDX);
     }
 
+    public GravityCollisionHandler(int level){
+        super(level);
+    }
+
     @Override
     public boolean shouldHandle(Sprite target){
         return target instanceof ActiveSprite;
