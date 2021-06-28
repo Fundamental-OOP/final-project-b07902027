@@ -5,19 +5,12 @@ import mushroom_battle.model.KnifeDirection;
 
 public class Knife extends ActiveSprite{
 
-    public final static int THROWING_RADIUS = 30;
-    public final static int WIDTH = 20, HEIGHT = 20;
     private Mushroom owner, thrower;
     private KnifeDirection throwingDirection;
 
-    public Knife(int initAngle){
-        super("Knife", 0, 0, WIDTH, HEIGHT, 0, 0);
-        this.throwingDirection = new KnifeDirection(THROWING_RADIUS, initAngle);
-    }
-
-    public Knife(int x, int y, int width, int height, int xSpeed, int ySpeed, int initAngle){
-        super("Knife", x, y, width, height, xSpeed, ySpeed);
-        this.throwingDirection = new KnifeDirection(THROWING_RADIUS, initAngle);
+    public Knife(int width, int height, int throwingRadius){
+        super("Knife", 0, 0, width, height, 0, 0);
+        this.throwingDirection = new KnifeDirection(throwingRadius, 0);
     }
 
     public boolean hasOwner(){
@@ -40,6 +33,10 @@ public class Knife extends ActiveSprite{
         this.owner = owner;
         if (owner != null)
             this.visible = false;
+    }
+
+    public void setAngle(int angle){
+        this.throwingDirection.setDirection(angle);
     }
 
     public void thrown(){

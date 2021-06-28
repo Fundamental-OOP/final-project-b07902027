@@ -1,13 +1,12 @@
 package mushroom_battle.model;
 
-import javax.sql.PooledConnection;
-
 import java.awt.Point;
 import java.util.ArrayList;
+import mushroom_battle.Constant;
 
 public class KnifeDirection {
 
-    public final static int UPDATE_SPEED = 1, MAX_ANGLE = 180;
+    public final static int MAX_ANGLE = 180;
     private int updateCounter = 0;
     private int angle, radius, step = 1;
     private Point currentDirection;
@@ -52,7 +51,7 @@ public class KnifeDirection {
 
     public void update(){
         updateCounter += 1;
-        if (updateCounter <= UPDATE_SPEED)
+        if (updateCounter <= Constant.KNIFE_DIRECTION_UPDATE_SPEED)
             return;
         if (angle + step >= MAX_ANGLE || angle + step < 0)
             step = -step;

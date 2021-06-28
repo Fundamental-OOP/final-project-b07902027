@@ -1,7 +1,7 @@
 package mushroom_battle.model.sprite;
 
 import sdk.model.RectangleSprite;
-import mushroom_battle.view.MushroomBattleView;
+
 
 public class Ground extends RectangleSprite{
     
@@ -9,8 +9,8 @@ public class Ground extends RectangleSprite{
         super("Ground", x, y, width, height);
     }
 
-    public Ground(){
-        super("Ground", 0, 0, MushroomBattleView.F_WIDTH, (int) MushroomBattleView.F_HEIGHT / 4);
+    public Ground(int width, int height){
+        super("Ground", 0, 0, width, height);
     }
 
     @Override

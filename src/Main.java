@@ -5,28 +5,33 @@ import mushroom_battle.model.*;
 import mushroom_battle.model.sprite.*;
 import mushroom_battle.view.*;
 import mushroom_battle.controller.*;
+import mushroom_battle.Constant;
 
 
 public class Main{
     public static void main(String[] args){
 
         // TODO: modify coordinate, width, height initialization to Constructor
+        
 
         // model
-        Knife kf1 = new Knife(0);
-        Knife kf2 = new Knife(180);
-        Mushroom m1 = new Mushroom();
-        Mushroom m2 = new Mushroom();
+        Knife kf1 = new Knife(Constant.KNIFE_WIDTH, Constant.KNIFE_HEIGHT, Constant.KNIFE_THROWING_SPEED);
+        Knife kf2 = new Knife(Constant.KNIFE_WIDTH, Constant.KNIFE_HEIGHT, Constant.KNIFE_THROWING_SPEED);
+        Mushroom m1 = new Mushroom(Constant.MUSHROOM_WIDTH, Constant.MUSHROOM_HEIGHT);
+        Mushroom m2 = new Mushroom(Constant.MUSHROOM_WIDTH, Constant.MUSHROOM_HEIGHT);
         m1.setKnife(kf1);
         m2.setKnife(kf2);
-        Ground ground = new Ground();
+        Ground ground = new Ground(Constant.GROUND.INIT_X, Constant.GROUND.INIT_Y,
+                                   Constant.GROUND.WIDTH, Constant.GROUND.HEIGHT);
+                                   
         //Ground ground2 = new Ground(300, 275, 200, 50);
         CollisionHandlerCollector collector = new CollisionHandlerCollector(
             new GravityCollisionHandler(),
             new KnifeCollisionHandler()
         );
         Physic physic = new MushroomBattlePhysic(MushroomBattleView.F_WIDTH, MushroomBattleView.F_HEIGHT);
-        World world = new MushroomBattleWorld(physic, collector, kf1, kf2, m1, m2, ground);
+        BatchSpriteInitiator initiator = new MushroomBattleSpriteInitiator();
+        World world = new MushroomBattleWorld(physic, collector, initiator, m1, m2, kf1, kf2, ground);
 
         // view
         View view = new MushroomBattleView(); 
@@ -40,7 +45,8 @@ public class Main{
 
         // game
         int fps = 60;
-        Game game = new MushroomBattleGame(world, view, fps);  // controller
+        int max_score = 5;
+        Game game = new MushroomBattleGame(world, view, fps, max_score);  // controller
         game.start();
     }
 }

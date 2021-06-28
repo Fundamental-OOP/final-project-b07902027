@@ -57,8 +57,7 @@ public class MushroomBattlePainter extends Painter{
         
         this.unit.setLocation(spriteBody.x, spriteBody.y);
         this.unit.setSize(spriteBody.width, spriteBody.height);
-        //this.unit.setVisible(sprite.isVisible());
-        this.unit.setVisible(true);
+        this.unit.setVisible(sprite.isVisible());
         // TODO: build special painter for each sprite
     }
 }

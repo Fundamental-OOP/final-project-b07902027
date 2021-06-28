@@ -4,13 +4,13 @@ import sdk.view.*;
 import sdk.model.*;
 
 
-public class Game{
+public abstract class Game{
 
     protected View view;
     protected World world;
     protected int fps;
     protected long msDelta;
-    protected boolean running;
+    protected boolean running = true;
 
 
     public Game(World world, View view, int fps){
@@ -42,13 +42,12 @@ public class Game{
     }
 
     protected void gameLoop() {
-        this.running = true;
         while (this.running) {
             world.update();
             view.render();
             this.delay();
+            this.checkIfGameEnds();
         }
-        System.out.println("Game Finished");
     }
 
     protected void delay() {
@@ -58,4 +57,6 @@ public class Game{
             e.printStackTrace();
         }
     }
+
+    abstract protected void checkIfGameEnds();
 }

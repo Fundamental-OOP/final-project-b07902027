@@ -2,20 +2,23 @@ package sdk.model;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 import static java.util.Arrays.stream;
 
 
 public abstract class World{
 
     protected final Physic physic;
+    protected final CollisionHandlerCollector handlerCollector;
+    protected final BatchSpriteInitiator initiator;
     protected final List<Sprite> sprites = new CopyOnWriteArrayList<Sprite>();
-    protected final CollisionHandlerCollector collisionHandlerCollector;
 
-    public World(Physic physic, CollisionHandlerCollector collector, Sprite... sprites) {
+    public World(Physic physic, CollisionHandlerCollector collector, BatchSpriteInitiator initiator, Sprite... sprites) {
         this.physic = physic;
-        this.collisionHandlerCollector = collector;
+        this.handlerCollector = collector;
+        this.initiator = initiator;
         addSprites(sprites);
-        this.initSprites(sprites);
+        this.initSprites();
     }
 
     public void addSprites(Sprite... sprites) {
@@ -32,14 +35,14 @@ public abstract class World{
     }
 
     public CollisionHandlerCollector getCollisionHandlerCollector(){
-        return this.collisionHandlerCollector;
+        return this.handlerCollector;
     }
 
     public void update() {
         for (Sprite sprite: this.sprites) 
             physic.update(sprite);
         for (Sprite sprite: this.sprites)
-            collisionHandlerCollector.handle(sprite, this.sprites);
+            handlerCollector.handle(sprite, this.sprites);
         for (Sprite sprite: this.sprites)
             sprite.update();
     }
@@ -48,5 +51,11 @@ public abstract class World{
         return sprites;
     }
 
-    protected abstract void initSprites(Sprite... sprites);
+    public Sprite getSprite(SpriteIndexConvertable s){
+        return sprites.get(s.getIdx());
+    }
+
+    public void initSprites(){
+        this.initiator.init(sprites);
+    }
 }

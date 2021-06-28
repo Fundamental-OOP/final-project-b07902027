@@ -71,6 +71,7 @@ public class KnifeCollisionHandler extends CollisionHandler{
             knife.intersects(mushroom))
         {
             mushroom.killed();
+            knife.visible = false;
         }
     }
 }
