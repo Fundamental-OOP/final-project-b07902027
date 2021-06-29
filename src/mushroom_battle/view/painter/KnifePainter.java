@@ -11,7 +11,7 @@ public class KnifePainter extends MushroomBattlePainter{
     private Knife knife;
 
     public KnifePainter(View view, String imagePath, RectangleSprite sprite){
-        super(view, imagePath, sprite);
+        super(view, sprite);
         if (!(sprite instanceof Knife)){
             throw new RuntimeException("Invalid Sprite type for KnifePainter: " + sprite.getName());
         }

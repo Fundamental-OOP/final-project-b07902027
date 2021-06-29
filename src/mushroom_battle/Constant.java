@@ -1,19 +1,34 @@
 package mushroom_battle;
 
+import java.awt.Color;
+
 public final class Constant {
 
     private Constant(){}
 
-    public final static int FRAME_WIDTH = 800;
-    public final static int FRAME_HEIGHT = 500;
+    public final static int FONT_SIZE = 20;
+    public final static String FONT_TYPE = "Verdana";
+
+    public final static int FRAME_WIDTH = 1000;
+    public final static int FRAME_HEIGHT = 600;
+
     public final static int MUSHROOM_X_SPEED = 3;
     public final static int MUSHROOM_Y_SPEED = -15;
     public final static int MUSHROOM_WIDTH = 40;
     public final static int MUSHROOM_HEIGHT = 40;
+
     public final static int KNIFE_WIDTH = 20;
     public final static int KNIFE_HEIGHT = 20;
     public final static int KNIFE_THROWING_SPEED = 20;
     public final static int KNIFE_DIRECTION_UPDATE_SPEED = 3;
+
+    public final static int BOARD_WIDTH = 300;
+    public final static int BOARD_HEIGHT = 100;
+    public final static int GAMEOVER_X = 350;
+    public final static int GAMEOVER_Y = 100;
+
+    public final static Color PLAYER1_COLOR = new Color(3, 32, 252);
+    public final static Color PLAYER2_COLOR = new Color(186, 26, 26);
 
     // specific initialization setting
     public final static class MUSHROOM1{
@@ -40,4 +55,12 @@ public final class Constant {
         public final static int INIT_X = 0;
         public final static int INIT_Y = FRAME_HEIGHT - HEIGHT;
     };
+    public final static class BOARD1{
+        public final static int INIT_X = FRAME_WIDTH / 4 - BOARD_WIDTH / 2;
+        public final static int INIT_Y = 100;
+    }
+    public final static class BOARD2{
+        public final static int INIT_X = FRAME_WIDTH * 3/4 - BOARD_WIDTH / 2;
+        public final static int INIT_Y = 100;
+    }
 }

@@ -24,6 +24,10 @@ public abstract class Game{
         getView().launch();
     }
 
+    public boolean isRunning(){
+        return this.running;
+    }
+
     public void stop(){
         this.running = false;
     }
@@ -35,6 +39,7 @@ public abstract class Game{
             this.delay();
             this.checkIfGameEnds();
         }
+        getView().render();
     }
 
     protected void delay() {

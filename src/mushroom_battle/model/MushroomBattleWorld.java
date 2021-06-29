@@ -22,11 +22,9 @@ public class MushroomBattleWorld extends World{
         if (getMushroom(1).isDead()){
             getMushroom(2).scoreBoard.increase();
             initSprites();
-            System.out.printf("Score ->  %d : %d\n", getMushroom(1).getScore(), getMushroom(2).getScore());
         } else if (getMushroom(2).isDead()){
             getMushroom(1).scoreBoard.increase();
             initSprites();
-            System.out.printf("Score ->  %d : %d\n", getMushroom(1).getScore(), getMushroom(2).getScore());
         }
     }
 }

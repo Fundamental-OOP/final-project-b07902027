@@ -7,16 +7,14 @@ import sdk.model.*;
 import sdk.view.*;
 
 
-abstract public class MushroomBattlePainter extends Painter{
+abstract public class MushroomBattlePainter extends SpritePainter{
 
     Rectangle spriteBody;
-    String imagePath;
     JPanel canvas, unit;
 
-    public MushroomBattlePainter(View view, String imagePath, RectangleSprite sprite){
+    public MushroomBattlePainter(View view, RectangleSprite sprite){
         super(view, sprite);
         this.spriteBody = sprite;
-        this.imagePath = imagePath;
 
         this.canvas = (JPanel) this.getRenderable();
         this.unit = createUnit(spriteBody.x, spriteBody.y, spriteBody.width, spriteBody.height);
@@ -24,10 +22,10 @@ abstract public class MushroomBattlePainter extends Painter{
     }
 
     private JPanel createUnit(int x, int y, int width, int height){
-        unit = new JPanel();
-        unit.setLocation(x, y);
-        unit.setSize(width, height);
-        return unit;
+        JPanel secondaryPanel = new JPanel();
+        secondaryPanel.setLocation(x, y);
+        secondaryPanel.setSize(width, height);
+        return secondaryPanel;
     }
 
     public void paint(){

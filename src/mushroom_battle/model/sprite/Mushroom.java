@@ -13,6 +13,7 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
     public Mushroom(int width, int height, ScoreBoard scoreBoard){
         super("Mushroom", 0, 0, width, height, 0, 0);
         this.scoreBoard = scoreBoard;
+        this.scoreBoard.setMushroom(this);
     }
 
     @Override

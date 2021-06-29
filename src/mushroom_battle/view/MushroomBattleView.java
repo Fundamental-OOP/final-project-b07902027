@@ -13,7 +13,6 @@ import java.awt.event.KeyEvent;
 import sdk.view.Painter;
 import sdk.view.View;
 import sdk.view.Renderable;
-import sdk.model.Sprite;
 import sdk.model.World;
 import sdk.controller.Game;
 import mushroom_battle.controller.MushroomBattleGame;
@@ -21,17 +20,19 @@ import mushroom_battle.controller.MushroomBattleGame;
 
 public class MushroomBattleView extends JFrame implements View{
 
-    public static final int F_WIDTH = 800;
-    public static final int F_HEIGHT = 500;
     public static final int M1 = 1;
     public static final int M2 = 2;
+    public final int frameWidth, frameHeight;
     private MushroomCanvas canvas;
     private MushroomBattleGame game;
 
     protected final List<Painter> painters = new CopyOnWriteArrayList<Painter>();
 
-    public MushroomBattleView(){
+    public MushroomBattleView(int frameWidth, int frameHeight){
         super("Mushroom Battle");
+        this.frameWidth = frameWidth;
+        this.frameHeight = frameHeight;
+        this.setResizable(false);
         this.canvas = new MushroomCanvas();
     }
 
@@ -45,7 +46,7 @@ public class MushroomBattleView extends JFrame implements View{
         this.canvas.setBackground(Color.LIGHT_GRAY);
         this.setContentPane(this.canvas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(F_WIDTH, F_HEIGHT);
+        this.setSize(frameWidth, frameHeight);
         this.setVisible(true);
         this.initController();
     }
@@ -77,7 +78,6 @@ public class MushroomBattleView extends JFrame implements View{
         painters.add(painter);
     }
     
-
     @Override
     public void launch(){
         SwingUtilities.invokeLater(new Runnable() {
@@ -107,18 +107,18 @@ public class MushroomBattleView extends JFrame implements View{
 
         @Override
         public int getFrameWidth(){
-            return MushroomBattleView.F_WIDTH;
+            return frameWidth;
         }
 
         @Override
         public int getFrameHeight(){
-            return MushroomBattleView.F_HEIGHT;
+            return frameHeight;
         }
 
         @Override
         public void render(World world){
-            for (Sprite sprite : world.getSprites()){
-                sprite.getPainter().paint();
+            for (Painter painter: painters){
+                painter.paint();
             }
             this.repaint();
         }

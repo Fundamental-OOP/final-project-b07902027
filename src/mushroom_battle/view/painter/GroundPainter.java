@@ -12,11 +12,11 @@ public class GroundPainter extends MushroomBattlePainter{
     private Ground ground;
 
     public GroundPainter(View view, String imagePath, RectangleSprite sprite){
-        super(view, imagePath, sprite);
+        super(view, sprite);
         if (!(sprite instanceof Ground)){
             throw new RuntimeException("Invalid Sprite type for KnifePainter: " + sprite.getName());
         }
-        this.ground = (Ground) sprite;
+        this.ground = (Ground) sprite;   
     }
 
     @Override
