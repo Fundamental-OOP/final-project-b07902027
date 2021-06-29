@@ -5,6 +5,7 @@ import mushroom_battle.model.*;
 import mushroom_battle.model.sprite.*;
 import mushroom_battle.view.*;
 import mushroom_battle.controller.*;
+import mushroom_battle.view.painter.*;
 import mushroom_battle.Constant;
 
 
@@ -28,11 +29,11 @@ public class Main{
 
         // view
         MushroomBattleView view = new MushroomBattleView(); 
-        Painter kf1Painter = new MushroomBattlePainter(view, "src/knife.png", kf1);
-        Painter kf2Painter = new MushroomBattlePainter(view, "src/knife.png", kf2);
-        Painter m1Painter = new MushroomBattlePainter(view, "src/mushroom.png", m1);
-        Painter m2Painter = new MushroomBattlePainter(view, "src/mushroom.png", m2);
-        Painter groundPainter = new MushroomBattlePainter(view, "src/ground.png", ground);
+        Painter kf1Painter = new KnifePainter(view, "src/knife.png", kf1);
+        Painter kf2Painter = new KnifePainter(view, "src/knife.png", kf2);
+        Painter m1Painter = new MushroomPainter(view, "src/mushroom.png", m1);
+        Painter m2Painter = new MushroomPainter(view, "src/mushroom.png", m2);
+        Painter groundPainter = new GroundPainter(view, "src/ground.png", ground);
         view.addPainters(kf1Painter, kf2Painter, m1Painter, m2Painter, groundPainter);
 
         // game
