@@ -12,7 +12,21 @@ public class MushroomBattleWorld extends World{
 
     public Mushroom getMushroom(int mushroomIdx){
         return (mushroomIdx == 1) ? 
-               (Mushroom) getSprite(SpriteEnum.MUSHROOM1) : 
-               (Mushroom) getSprite(SpriteEnum.MUSHROOM2);
+               (Mushroom) getSprite(SpriteInitEnum.MUSHROOM1) : 
+               (Mushroom) getSprite(SpriteInitEnum.MUSHROOM2);
+    }
+
+    @Override 
+    public void update(){
+        super.update();
+        if (getMushroom(1).isDead()){
+            getMushroom(2).scoreBoard.increase();
+            initSprites();
+            System.out.printf("Score ->  %d : %d\n", getMushroom(1).getScore(), getMushroom(2).getScore());
+        } else if (getMushroom(2).isDead()){
+            getMushroom(1).scoreBoard.increase();
+            initSprites();
+            System.out.printf("Score ->  %d : %d\n", getMushroom(1).getScore(), getMushroom(2).getScore());
+        }
     }
 }

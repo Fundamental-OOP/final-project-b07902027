@@ -2,14 +2,17 @@ package mushroom_battle.model.sprite;
 
 import mushroom_battle.Constant;
 import mushroom_battle.model.KnifeOwner;
+import mushroom_battle.model.ScoreBoard;
 
 public class Mushroom extends ActiveSprite implements KnifeOwner{
     
     private boolean alive = true;
     private Knife knife;
+    public final ScoreBoard scoreBoard;
 
-    public Mushroom(int width, int height){
+    public Mushroom(int width, int height, ScoreBoard scoreBoard){
         super("Mushroom", 0, 0, width, height, 0, 0);
+        this.scoreBoard = scoreBoard;
     }
 
     @Override
@@ -42,6 +45,10 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
         this.knife = null;
     }
 
+    public int getScore(){
+        return scoreBoard.getScore();
+    }
+
     public void pushButton(){
         if (hasKnife()){
             throwKnife();
@@ -63,5 +70,9 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
 
     public boolean isDead(){
         return !this.alive;
+    }
+
+    public void setAlive(){
+        this.alive = true;
     }
 }

@@ -6,35 +6,22 @@ import sdk.model.*;
 
 public abstract class Game{
 
-    protected View view;
-    protected World world;
     protected int fps;
     protected long msDelta;
     protected boolean running = true;
 
-
-    public Game(World world, View view, int fps){
-        this.world  = world;
-        this.view = view;
+    public Game(int fps){
         this.fps = fps;
         this.msDelta = (long) (1.0 / fps * 1000);
     }
 
-    public void setView(View view){
-        this.view = view;
-    }
-
-    public World getWorld(){
-        return this.world;
-    }
-
-    public View getView(){
-        return this.view;
-    }
+    abstract public World getWorld();
+    abstract public View getView();
+    abstract protected void checkIfGameEnds();
 
     public void start() {
         new Thread(this::gameLoop).start();
-        this.view.launch();
+        getView().launch();
     }
 
     public void stop(){
@@ -43,8 +30,8 @@ public abstract class Game{
 
     protected void gameLoop() {
         while (this.running) {
-            world.update();
-            view.render();
+            getWorld().update();
+            getView().render();
             this.delay();
             this.checkIfGameEnds();
         }
@@ -57,6 +44,4 @@ public abstract class Game{
             e.printStackTrace();
         }
     }
-
-    abstract protected void checkIfGameEnds();
 }

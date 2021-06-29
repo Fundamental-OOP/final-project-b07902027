@@ -52,7 +52,7 @@ public class MushroomBattlePainter extends Painter{
                 this.unit.setBackground(Color.CYAN);
             }
         } else if (sprite.getName().equals("Ground")){
-            this.unit.setBackground(Color.GREEN);
+            this.unit.setBackground(new Color(153, 102, 0));
         }
         
         this.unit.setLocation(spriteBody.x, spriteBody.y);
