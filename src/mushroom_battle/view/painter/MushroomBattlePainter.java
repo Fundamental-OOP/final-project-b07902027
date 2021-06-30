@@ -21,7 +21,7 @@ abstract public class MushroomBattlePainter extends SpritePainter{
         this.canvas.add(unit);
     }
 
-    private JPanel createUnit(int x, int y, int width, int height){
+    protected JPanel createUnit(int x, int y, int width, int height){
         JPanel secondaryPanel = new JPanel();
         secondaryPanel.setLocation(x, y);
         secondaryPanel.setSize(width, height);

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import static java.util.Arrays.stream;
 
-import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -43,7 +42,6 @@ public class MushroomBattleView extends JFrame implements View{
 
     private void initAndShowGUI(){
         this.canvas.setLayout(null);
-        this.canvas.setBackground(Color.LIGHT_GRAY);
         this.setContentPane(this.canvas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);

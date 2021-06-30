@@ -14,8 +14,8 @@ public final class Constant {
 
     public final static int MUSHROOM_X_SPEED = 3;
     public final static int MUSHROOM_Y_SPEED = -15;
-    public final static int MUSHROOM_WIDTH = 30;
-    public final static int MUSHROOM_HEIGHT = 30;
+    public final static int MUSHROOM_WIDTH = 40;
+    public final static int MUSHROOM_HEIGHT = 40;
 
     public final static int KNIFE_WIDTH = 20;
     public final static int KNIFE_HEIGHT = 20;
@@ -29,8 +29,8 @@ public final class Constant {
     public final static int GAMEOVER_X = 350;
     public final static int GAMEOVER_Y = 100;
 
-    public final static Color PLAYER1_COLOR = new Color(3, 32, 252);
-    public final static Color PLAYER2_COLOR = new Color(186, 26, 26);
+    public final static Color PLAYER1_COLOR = new Color(186, 26, 26);
+    public final static Color PLAYER2_COLOR = new Color(50, 168, 82);
 
     // specific initialization setting
     public final static class MUSHROOM1{
