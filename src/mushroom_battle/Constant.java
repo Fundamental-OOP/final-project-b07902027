@@ -19,13 +19,29 @@ public final class Constant {
 
     public final static int GOOMBA_WIDTH = 20;
     public final static int GOOMBA_HEIGHT = 20;
-    public final static int GOOMBA_THROWING_SPEED = 23;
+    public final static int GOOMBA_THROWING_SPEED = 25;
     public final static int GOOMBA_DIRECTION_UPDATE_SPEED = 5;
     public final static int GOOMBA_READY_MARK_RANGE = 40;
     public final static int GOOMBA_READY_MARK_SIZE = 15;
 
     public final static int BOARD_WIDTH = 300;
     public final static int BOARD_HEIGHT = 100;
+
+    public final static int PLATFORM_HEIGHT = 20;
+
+    public final static int PLATFORM1_WIDTH = 200;
+    public final static int PLATFORM1_X = 400;
+    public final static int PLATFORM1_Y = 300;
+
+    public final static int PLATFORM2_WIDTH = 150;
+    public final static int PLATFORM2_X = 0;
+    public final static int PLATFORM2_Y = 350;
+
+    public final static int PLATFORM3_WIDTH = 150;
+    public final static int PLATFORM3_X = FRAME_WIDTH - PLATFORM3_WIDTH;
+    public final static int PLATFORM3_Y = 350;
+
+
     public final static int GAMEOVER_X = 350;
     public final static int GAMEOVER_Y = 100;
 
@@ -53,7 +69,7 @@ public final class Constant {
     }
     public final static class GROUND{
         public final static int WIDTH = FRAME_WIDTH;
-        public final static int HEIGHT = (int) FRAME_HEIGHT / 4;
+        public final static int HEIGHT = 150 ;
         public final static int INIT_X = 0;
         public final static int INIT_Y = FRAME_HEIGHT - HEIGHT;
     };

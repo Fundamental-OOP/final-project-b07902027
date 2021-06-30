@@ -7,7 +7,7 @@ import sdk.model.*;
 
 public class GoombaCollisionHandler extends CollisionHandler{
 
-    final static int SCHEDULING_IDX = 1;
+    final static int SCHEDULING_IDX = 2;
 
     public GoombaCollisionHandler(){
         super(SCHEDULING_IDX);
@@ -39,11 +39,12 @@ public class GoombaCollisionHandler extends CollisionHandler{
     }
 
     private void goombaHitGroundHandler(Goomba goomba, Ground ground){
-        if (!goomba.isFalling && goomba.getThrower() != null && ground.y - goomba.height == goomba.y){
+        if (!goomba.isFalling && goomba.getThrower() != null && 
+            goomba.y + goomba.height == ground.y)
+        {
             goomba.setThrower(null);
             goomba.xSpeed = 0;
             goomba.ySpeed = 0;
-            goomba.isFalling = false;
         }
     }
 

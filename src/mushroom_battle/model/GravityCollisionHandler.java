@@ -32,7 +32,10 @@ public class GravityCollisionHandler extends CollisionHandler{
     }
 
     public void handle(ActiveSprite sprite, Ground ground){
-        if (sprite.intersects(ground) && sprite.isFalling){
+        if (sprite.intersects(ground.x, ground.y-1, ground.width, ground.height) && 
+            sprite.isFalling && 
+            sprite.ySpeed > 0
+        ){
             sprite.isFalling = false;
             sprite.setLocation(sprite.x, ground.y - sprite.height);
         }
