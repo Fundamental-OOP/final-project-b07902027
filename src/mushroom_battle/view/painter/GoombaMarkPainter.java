@@ -4,22 +4,22 @@ import javax.swing.JPanel;
 
 
 import sdk.view.View;
-import mushroom_battle.model.KnifeDirection;
-import mushroom_battle.model.sprite.Knife;
+import mushroom_battle.model.GoombaDirection;
+import mushroom_battle.model.sprite.Goomba;
 import mushroom_battle.view.ImageJPanel;
 
-public class KnifeMarkPainter extends MushroomBattlePainter{
+public class GoombaMarkPainter extends MushroomBattlePainter{
 
-    private final KnifeDirection direction;
-    private final Knife knife;
+    private final GoombaDirection direction;
+    private final Goomba goomba;
     private ImageJPanel image;
 
-    public KnifeMarkPainter(View view, Knife knife, String imagePath, int markSize){
-        super(view, knife);
-        this.knife = knife;
+    public GoombaMarkPainter(View view, Goomba goomba, String imagePath, int markSize){
+        super(view, goomba);
+        this.goomba = goomba;
         this.image = (ImageJPanel) this.unit;
         this.image.setImage(imagePath, markSize, markSize);
-        this.direction = knife.getDirection();
+        this.direction = goomba.getDirection();
         resetLocation();
         this.unit.setSize(markSize, markSize);
     }
@@ -30,7 +30,7 @@ public class KnifeMarkPainter extends MushroomBattlePainter{
     }
 
     public void paint(){
-        if (knife.hasOwner()){
+        if (goomba.hasOwner()){
             this.unit.setVisible(true);
             resetLocation();
         } else{
@@ -39,8 +39,8 @@ public class KnifeMarkPainter extends MushroomBattlePainter{
     }
 
     protected void resetLocation(){
-        this.unit.setLocation(knife.x + knife.getOwner().width / 2 + direction.getReadyX() - 4,
-                              knife.y + knife.getOwner().height / 2 + direction.getReadyY());
+        this.unit.setLocation(goomba.x + goomba.getOwner().width / 2 + direction.getReadyX() - 4,
+                              goomba.y + goomba.getOwner().height / 2 + direction.getReadyY());
     }
 
 }

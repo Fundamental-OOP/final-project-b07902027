@@ -8,16 +8,16 @@ import mushroom_battle.view.painter.*;
 import java.awt.Color;
 
 import mushroom_battle.Constant;
-import mushroom_battle.Constant.KNIFE1;
-import mushroom_battle.Constant.KNIFE2;
+import mushroom_battle.Constant.GOOMBA1;
+import mushroom_battle.Constant.GOOMBA2;
 
 
 public class Main{
     public static void main(String[] args){
 
         // model
-        Knife kf1 = new Knife(Constant.KNIFE_WIDTH, Constant.KNIFE_HEIGHT, Constant.KNIFE_THROWING_SPEED, Constant.KNIFE_READY_MARK_RANGE, KNIFE1.INIT_ANGLE, Constant.KNIFE_DIRECTION_UPDATE_SPEED);
-        Knife kf2 = new Knife(Constant.KNIFE_WIDTH, Constant.KNIFE_HEIGHT, Constant.KNIFE_THROWING_SPEED, Constant.KNIFE_READY_MARK_RANGE, KNIFE2.INIT_ANGLE, Constant.KNIFE_DIRECTION_UPDATE_SPEED);
+        Goomba gb1 = new Goomba(Constant.GOOMBA_WIDTH, Constant.GOOMBA_HEIGHT, Constant.GOOMBA_THROWING_SPEED, Constant.GOOMBA_READY_MARK_RANGE, GOOMBA1.INIT_ANGLE, Constant.GOOMBA_DIRECTION_UPDATE_SPEED);
+        Goomba gb2 = new Goomba(Constant.GOOMBA_WIDTH, Constant.GOOMBA_HEIGHT, Constant.GOOMBA_THROWING_SPEED, Constant.GOOMBA_READY_MARK_RANGE, GOOMBA2.INIT_ANGLE, Constant.GOOMBA_DIRECTION_UPDATE_SPEED);
         ScoreBoard scoreBoard1 = new ScoreBoard(Constant.BOARD1.INIT_X, Constant.BOARD1.INIT_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT);
         ScoreBoard scoreBoard2 = new ScoreBoard(Constant.BOARD2.INIT_X, Constant.BOARD2.INIT_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT);
         Mushroom m1 = new Mushroom(Constant.MUSHROOM_WIDTH, Constant.MUSHROOM_HEIGHT, scoreBoard1);
@@ -25,11 +25,11 @@ public class Main{
         Ground ground = new Ground(Constant.GROUND.INIT_X, Constant.GROUND.INIT_Y, Constant.GROUND.WIDTH, Constant.GROUND.HEIGHT);
         CollisionHandlerCollector collector = new CollisionHandlerCollector(
             new GravityCollisionHandler(),
-            new KnifeCollisionHandler()
+            new GoombaCollisionHandler()
         );
         Physic physic = new MushroomBattlePhysic(Constant.FRAME_WIDTH, Constant.FRAME_HEIGHT);
         BatchSpriteInitiator initiator = new MushroomBattleSpriteInitiator();
-        MushroomBattleWorld world = new MushroomBattleWorld(physic, collector, initiator, m1, m2, kf1, kf2, ground);
+        MushroomBattleWorld world = new MushroomBattleWorld(physic, collector, initiator, m1, m2, gb1, gb2, ground);
 
         // view
         MushroomBattleView view = new MushroomBattleView(Constant.FRAME_WIDTH, Constant.FRAME_HEIGHT); 
@@ -41,13 +41,13 @@ public class Main{
 
         // view.painter
         view.addPainters(
-            new MushroomBattleImagePainter(view, kf1, "img/goomba.png"),
-            new MushroomBattleImagePainter(view, kf2, "img/goomba.png"),
+            new MushroomBattleImagePainter(view, gb1, "img/goomba.png"),
+            new MushroomBattleImagePainter(view, gb2, "img/goomba.png"),
             new MushroomBattleImagePainter(view, m1, "img/mushroom1.png"),
             new MushroomBattleImagePainter(view, m2, "img/mushroom2.png"),
             new MushroomBattleImagePainter(view, ground, "img/ground.png"),
-            new KnifeMarkPainter(view, kf1, "img/goomba.png", Constant.KNIFE_READY_MARK_SIZE),
-            new KnifeMarkPainter(view, kf2, "img/goomba.png", Constant.KNIFE_READY_MARK_SIZE),
+            new GoombaMarkPainter(view, gb1, "img/goomba.png", Constant.GOOMBA_READY_MARK_SIZE),
+            new GoombaMarkPainter(view, gb2, "img/goomba.png", Constant.GOOMBA_READY_MARK_SIZE),
             new ScoreBoardPainter(view, scoreBoard1, Constant.PLAYER1_COLOR),
             new ScoreBoardPainter(view, scoreBoard2, Constant.PLAYER2_COLOR),
             new GameOverPainter(view, game, Constant.GAMEOVER_X, Constant.GAMEOVER_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT, Color.BLACK)

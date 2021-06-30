@@ -1,16 +1,16 @@
 package mushroom_battle.model.sprite;
 
-import mushroom_battle.model.KnifeDirection;
+import mushroom_battle.model.GoombaDirection;
 
 
-public class Knife extends ActiveSprite{
+public class Goomba extends ActiveSprite{
 
     private Mushroom owner, thrower;
-    private KnifeDirection throwingDirection;
+    private GoombaDirection throwingDirection;
 
-    public Knife(int width, int height, int throwingRadius, int readyMarkRadius, int initAngle, int angleSpeed){
-        super("Knife", 0, 0, width, height, 0, 0);
-        this.throwingDirection = new KnifeDirection(throwingRadius, readyMarkRadius, initAngle, angleSpeed);
+    public Goomba(int width, int height, int throwingRadius, int readyMarkRadius, int initAngle, int angleSpeed){
+        super("Goomba", 0, 0, width, height, 0, 0);
+        this.throwingDirection = new GoombaDirection(throwingRadius, readyMarkRadius, initAngle, angleSpeed);
     }
 
     public boolean hasOwner(){
@@ -52,7 +52,7 @@ public class Knife extends ActiveSprite{
         this.visible = true;
     }
 
-    public KnifeDirection getDirection(){
+    public GoombaDirection getDirection(){
         return this.throwingDirection;
     }
 

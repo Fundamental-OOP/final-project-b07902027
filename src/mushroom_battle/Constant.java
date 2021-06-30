@@ -17,12 +17,12 @@ public final class Constant {
     public final static int MUSHROOM_WIDTH = 40;
     public final static int MUSHROOM_HEIGHT = 40;
 
-    public final static int KNIFE_WIDTH = 20;
-    public final static int KNIFE_HEIGHT = 20;
-    public final static int KNIFE_THROWING_SPEED = 23;
-    public final static int KNIFE_DIRECTION_UPDATE_SPEED = 5;
-    public final static int KNIFE_READY_MARK_RANGE = 40;
-    public final static int KNIFE_READY_MARK_SIZE = 15;
+    public final static int GOOMBA_WIDTH = 20;
+    public final static int GOOMBA_HEIGHT = 20;
+    public final static int GOOMBA_THROWING_SPEED = 23;
+    public final static int GOOMBA_DIRECTION_UPDATE_SPEED = 5;
+    public final static int GOOMBA_READY_MARK_RANGE = 40;
+    public final static int GOOMBA_READY_MARK_SIZE = 15;
 
     public final static int BOARD_WIDTH = 300;
     public final static int BOARD_HEIGHT = 100;
@@ -45,10 +45,10 @@ public final class Constant {
         public final static int INIT_X_SPEED = -MUSHROOM_X_SPEED;
         public final static int INIT_Y_SPEED = 0;
     };
-    public final static class KNIFE1{
+    public final static class GOOMBA1{
         public final static int INIT_ANGLE = 0;
     }
-    public final static class KNIFE2{
+    public final static class GOOMBA2{
         public final static int INIT_ANGLE = 180;
     }
     public final static class GROUND{

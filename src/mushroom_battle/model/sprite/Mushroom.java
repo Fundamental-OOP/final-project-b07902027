@@ -1,13 +1,13 @@
 package mushroom_battle.model.sprite;
 
 import mushroom_battle.Constant;
-import mushroom_battle.model.KnifeOwner;
+import mushroom_battle.model.GoombaOwner;
 import mushroom_battle.model.ScoreBoard;
 
-public class Mushroom extends ActiveSprite implements KnifeOwner{
+public class Mushroom extends ActiveSprite implements GoombaOwner{
     
     private boolean alive = true;
-    private Knife knife;
+    private Goomba goomba;
     public final ScoreBoard scoreBoard;
 
     public Mushroom(int width, int height, ScoreBoard scoreBoard){
@@ -21,29 +21,29 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
     }
 
     @Override
-    public void setKnife(Knife knife){
-        this.knife = knife;
-        knife.setOwner(this);
+    public void setGoomba(Goomba goomba){
+        this.goomba = goomba;
+        goomba.setOwner(this);
     }
 
     @Override
-    public boolean hasKnife(){
-        return this.knife != null;
+    public boolean hasGoomba(){
+        return this.goomba != null;
         // return false;
     }
 
     @Override
-    public Knife getKnife(){
-        if (this.knife == null){
-            throw new RuntimeException(getName() + " doesn't have knife but was required one.\n");
+    public Goomba getGoomba(){
+        if (this.goomba == null){
+            throw new RuntimeException(getName() + " doesn't have goomba but was required one.\n");
         }
-        return this.knife;
+        return this.goomba;
     }
 
     @Override
-    public void throwKnife(){
-        this.knife.thrown();
-        this.knife = null;
+    public void throwGoomba(){
+        this.goomba.thrown();
+        this.goomba = null;
     }
 
     public int getScore(){
@@ -51,8 +51,8 @@ public class Mushroom extends ActiveSprite implements KnifeOwner{
     }
 
     public void pushButton(){
-        if (hasKnife()){
-            throwKnife();
+        if (hasGoomba()){
+            throwGoomba();
         } else {
             jump();
         }

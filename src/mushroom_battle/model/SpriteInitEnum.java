@@ -15,7 +15,7 @@ public enum SpriteInitEnum implements SpriteIndexConvertable, SpriteInitiator{
             m1.setLocation(Constant.MUSHROOM1.INIT_X, Constant.MUSHROOM1.INIT_Y);
             m1.setSpeed(Constant.MUSHROOM1.INIT_X_SPEED, Constant.MUSHROOM1.INIT_Y_SPEED);
             m1.setAlive();
-            m1.setKnife((Knife) m1.getWorld().getSprite(KNIFE1));
+            m1.setGoomba((Goomba) m1.getWorld().getSprite(GOOMBA1));
         }
     }),
 
@@ -26,18 +26,18 @@ public enum SpriteInitEnum implements SpriteIndexConvertable, SpriteInitiator{
             m2.setLocation(Constant.MUSHROOM2.INIT_X, Constant.MUSHROOM2.INIT_Y);
             m2.setSpeed(Constant.MUSHROOM2.INIT_X_SPEED, Constant.MUSHROOM2.INIT_Y_SPEED);
             m2.setAlive();
-            m2.setKnife((Knife) m2.getWorld().getSprite(KNIFE2));
+            m2.setGoomba((Goomba) m2.getWorld().getSprite(GOOMBA2));
         }
     }),
 
-    KNIFE1(new SpriteInitiator(){
+    GOOMBA1(new SpriteInitiator(){
         @Override
         public void init(Sprite sprite){
             // it's owned by m1
         }
     }),
 
-    KNIFE2(new SpriteInitiator(){
+    GOOMBA2(new SpriteInitiator(){
         @Override
         public void init(Sprite sprite){
             // it's owned by m2

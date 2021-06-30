@@ -3,7 +3,7 @@ package mushroom_battle.model;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class KnifeDirection {
+public class GoombaDirection {
 
     public final static int MAX_ANGLE = 180;
     private int angle, radius, readyRadius;
@@ -11,7 +11,7 @@ public class KnifeDirection {
     private Point currentDirection, currentReadyDirection;
     private ArrayList<Point> directions, readyDirections;
     
-    public KnifeDirection(int radius, int readyRadius, int initAngle, int updateSpeed){
+    public GoombaDirection(int radius, int readyRadius, int initAngle, int updateSpeed){
         this.radius = radius;
         this.readyRadius = readyRadius;
         this.updateSpeed = updateSpeed;
