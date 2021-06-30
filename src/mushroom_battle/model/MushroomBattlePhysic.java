@@ -21,7 +21,7 @@ public class MushroomBattlePhysic extends Physic{
 
     private void updateCoordinate(ActiveSprite sprite){
 
-        // x sprite
+        // x coordinate
         if (sprite.x + sprite.getXSpeed() + sprite.width >= borderX){
             sprite.setLocation(borderX - sprite.width, sprite.y);
             sprite.setXSpeed(-sprite.getXSpeed());
@@ -32,8 +32,7 @@ public class MushroomBattlePhysic extends Physic{
             sprite.x = sprite.x + sprite.getXSpeed();
         }
 
-        // y sprite
-        // TODO: slow down y updating
+        // y coordinate
         if (sprite.isFalling()){
             sprite.y = sprite.y + sprite.getYSpeed();
             sprite.setYSpeed(sprite.getYSpeed() + GRAVITY);

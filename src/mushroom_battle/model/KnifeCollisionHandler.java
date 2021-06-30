@@ -35,10 +35,6 @@ public class KnifeCollisionHandler extends CollisionHandler{
                 knifePickedUpHandler(knife, (Mushroom) otherSprite);
                 knifeKilledMushroomHandler(knife, (Mushroom) otherSprite);
             }
-            // if knife collision with ground: setOwner = null
-            // TODO: handle knife collision with mushroom
-            //if (otherSprite instanceof Ground)
-            //    handle(knife, (Ground) otherSprite);
         }
     }
 

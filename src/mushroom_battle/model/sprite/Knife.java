@@ -8,9 +8,9 @@ public class Knife extends ActiveSprite{
     private Mushroom owner, thrower;
     private KnifeDirection throwingDirection;
 
-    public Knife(int width, int height, int throwingRadius){
+    public Knife(int width, int height, int throwingRadius, int readyMarkRadius, int initAngle, int angleSpeed){
         super("Knife", 0, 0, width, height, 0, 0);
-        this.throwingDirection = new KnifeDirection(throwingRadius, 0);
+        this.throwingDirection = new KnifeDirection(throwingRadius, readyMarkRadius, initAngle, angleSpeed);
     }
 
     public boolean hasOwner(){
@@ -31,8 +31,10 @@ public class Knife extends ActiveSprite{
 
     public void setOwner(Mushroom owner){
         this.owner = owner;
-        if (owner != null)
+        if (owner != null){
             this.visible = false;
+            this.isFalling = false;
+        }
     }
 
     public void setAngle(int angle){
@@ -49,10 +51,14 @@ public class Knife extends ActiveSprite{
         this.visible = true;
     }
 
+    public KnifeDirection getDirection(){
+        return this.throwingDirection;
+    }
+
     @Override
     public void update(){
         if (this.owner != null && !isFalling){
-            setLocation(owner.x + 10, owner.y - this.height); // TODO: change format when following a mushroom
+            setLocation(owner.x, owner.y);
         }
         throwingDirection.update();
     }

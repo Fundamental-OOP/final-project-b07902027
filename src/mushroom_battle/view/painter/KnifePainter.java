@@ -8,19 +8,16 @@ import mushroom_battle.model.sprite.*;
 
 public class KnifePainter extends MushroomBattlePainter{
 
-    private Knife knife;
-
     public KnifePainter(View view, String imagePath, RectangleSprite sprite){
         super(view, sprite);
         if (!(sprite instanceof Knife)){
             throw new RuntimeException("Invalid Sprite type for KnifePainter: " + sprite.getName());
         }
-        this.knife = (Knife) sprite;
+        this.unit.setBackground(Color.RED);
     }
 
     @Override
     public void paint(){
         super.paint();
-        this.unit.setBackground(Color.RED);
     }
 }

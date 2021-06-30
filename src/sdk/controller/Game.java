@@ -39,6 +39,7 @@ public abstract class Game{
             this.delay();
             this.checkIfGameEnds();
         }
+        getWorld().update();
         getView().render();
     }
 

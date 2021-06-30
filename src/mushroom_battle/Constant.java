@@ -14,13 +14,15 @@ public final class Constant {
 
     public final static int MUSHROOM_X_SPEED = 3;
     public final static int MUSHROOM_Y_SPEED = -15;
-    public final static int MUSHROOM_WIDTH = 40;
-    public final static int MUSHROOM_HEIGHT = 40;
+    public final static int MUSHROOM_WIDTH = 30;
+    public final static int MUSHROOM_HEIGHT = 30;
 
     public final static int KNIFE_WIDTH = 20;
     public final static int KNIFE_HEIGHT = 20;
-    public final static int KNIFE_THROWING_SPEED = 20;
-    public final static int KNIFE_DIRECTION_UPDATE_SPEED = 3;
+    public final static int KNIFE_THROWING_SPEED = 23;
+    public final static int KNIFE_DIRECTION_UPDATE_SPEED = 5;
+    public final static int KNIFE_READY_MARK_RANGE = 40;
+    public final static int KNIFE_READY_MARK_RADIUS = 7;
 
     public final static int BOARD_WIDTH = 300;
     public final static int BOARD_HEIGHT = 100;

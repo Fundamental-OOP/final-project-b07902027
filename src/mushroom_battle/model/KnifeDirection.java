@@ -2,39 +2,47 @@ package mushroom_battle.model;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import mushroom_battle.Constant;
 
 public class KnifeDirection {
 
     public final static int MAX_ANGLE = 180;
-    private int updateCounter = 0;
-    private int angle, radius, step = 1;
-    private Point currentDirection;
-    private ArrayList<Point> directions;
+    private int angle, radius, readyRadius;
+    private int updateSpeed = 1;
+    private Point currentDirection, currentReadyDirection;
+    private ArrayList<Point> directions, readyDirections;
     
-    public KnifeDirection(int radius, int initAngle){
+    public KnifeDirection(int radius, int readyRadius, int initAngle, int updateSpeed){
         this.radius = radius;
+        this.readyRadius = readyRadius;
+        this.updateSpeed = updateSpeed;
         createDirectionTable();
         setDirection(initAngle);
     }
 
     private void createDirectionTable(){
         directions = new ArrayList<Point>();
-        int x, y;
+        readyDirections = new ArrayList<Point>();
+        double cosineTheta, sineTheta;
         for (double theta = 0; theta <= MAX_ANGLE; theta++){
-            x = (int) (Math.cos(Math.toRadians(theta)) * radius);
-            y = (int) (Math.sin(Math.toRadians(theta)) * radius);
-            directions.add(new Point(x, -y));
+            cosineTheta = Math.cos(Math.toRadians(theta));
+            sineTheta = Math.sin(Math.toRadians(theta));
+            directions.add(new Point(
+                (int) (radius * cosineTheta), (int) - (radius * sineTheta)
+            ));
+            readyDirections.add(new Point(
+                (int) (readyRadius * cosineTheta), (int) -(readyRadius * sineTheta)
+            ));
         }
     }
 
     public void setDirection(int angle){
         this.angle = angle;
-        this.currentDirection= directions.get(angle);
+        setDirection();
     }
 
     private void setDirection(){
-        this.currentDirection= directions.get(this.angle); 
+        this.currentDirection = directions.get(this.angle);
+        this.currentReadyDirection = readyDirections.get(this.angle);
     }
 
     public int getAngle(){
@@ -49,14 +57,18 @@ public class KnifeDirection {
         return currentDirection.y;
     }
 
+    public int getReadyX(){
+        return currentReadyDirection.x;
+    }
+
+    public int getReadyY(){
+        return currentReadyDirection.y;
+    }
+
     public void update(){
-        updateCounter += 1;
-        if (updateCounter <= Constant.KNIFE_DIRECTION_UPDATE_SPEED)
-            return;
-        if (angle + step >= MAX_ANGLE || angle + step < 0)
-            step = -step;
-        angle = angle + step;
+        if (angle + updateSpeed > MAX_ANGLE || angle + updateSpeed < 0)
+            updateSpeed = -updateSpeed;
+        angle = angle + updateSpeed;
         setDirection();
-        updateCounter = 0;
     }
 }
