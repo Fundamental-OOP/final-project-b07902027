@@ -19,6 +19,7 @@ public class ImageJPanel extends JPanel{
             result = ImageIO.read(new File(imagePath));
         } catch(IOException e){
             System.err.println("Error: image path " + imagePath + " doesn't exists.");
+            System.exit(1);
         }
         return result;
     }

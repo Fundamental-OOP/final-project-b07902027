@@ -12,8 +12,8 @@ public final class Constant {
     public final static int FRAME_WIDTH = 1000;
     public final static int FRAME_HEIGHT = 600;
 
-    public final static int MUSHROOM_X_SPEED = 3;
-    public final static int MUSHROOM_Y_SPEED = -15;
+    public final static int MUSHROOM_X_SPEED = 4;
+    public final static int MUSHROOM_Y_SPEED = -17;
     public final static int MUSHROOM_WIDTH = 40;
     public final static int MUSHROOM_HEIGHT = 40;
 

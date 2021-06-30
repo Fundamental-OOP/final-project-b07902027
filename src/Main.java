@@ -43,11 +43,11 @@ public class Main{
         view.addPainters(
             new KnifePainter(view, "src/knife.png", kf1),
             new KnifePainter(view, "src/knife.png", kf2),
-            new MushroomPainter(view, m1, "img/mushroom1.png"),
-            new MushroomPainter(view, m2, "img/mushroom2.png"),
+            new MushroomBattleImagePainter(view, m1, "img/mushroom1.png"),
+            new MushroomBattleImagePainter(view, m2, "img/mushroom2.png"),
             new KnifeMarkPainter(view, kf1, Color.WHITE, Constant.KNIFE_READY_MARK_RADIUS),
             new KnifeMarkPainter(view, kf2, Color.WHITE, Constant.KNIFE_READY_MARK_RADIUS),
-            new GroundPainter(view, "src/ground.png", ground),
+            new MushroomBattleImagePainter(view, ground, "img/ground.png"),
             new ScoreBoardPainter(view, scoreBoard1, Constant.PLAYER1_COLOR),
             new ScoreBoardPainter(view, scoreBoard2, Constant.PLAYER2_COLOR),
             new GameOverPainter(view, game, Constant.GAMEOVER_X, Constant.GAMEOVER_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT, Color.BLACK)
