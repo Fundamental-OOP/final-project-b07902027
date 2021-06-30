@@ -32,6 +32,7 @@ public class Knife extends ActiveSprite{
     public void setOwner(Mushroom owner){
         this.owner = owner;
         if (owner != null){
+            this.thrower = null;
             this.visible = false;
             this.isFalling = false;
         }

@@ -38,10 +38,6 @@ public class KnifeCollisionHandler extends CollisionHandler{
         }
     }
 
-    public void handle(ActiveSprite sprite, Ground ground){
-        
-    }
-
     private void knifeHitGroundHandler(Knife knife, Ground ground){
         if (!knife.isFalling && knife.getThrower() != null && ground.y - knife.height == knife.y){
             knife.setThrower(null);
