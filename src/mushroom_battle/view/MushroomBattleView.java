@@ -12,7 +12,6 @@ import java.awt.event.KeyEvent;
 import sdk.view.Painter;
 import sdk.view.View;
 import sdk.view.Renderable;
-import sdk.model.World;
 import sdk.controller.Game;
 import mushroom_battle.controller.MushroomBattleGame;
 
@@ -112,15 +111,5 @@ public class MushroomBattleView extends JFrame implements View{
         public int getFrameHeight(){
             return frameHeight;
         }
-
-        @Override
-        public void render(World world){
-            for (Painter painter: painters){
-                painter.paint();
-            }
-            this.repaint();
-        }
-
     }
-
 }
