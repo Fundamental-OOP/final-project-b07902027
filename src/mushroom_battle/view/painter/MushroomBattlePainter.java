@@ -10,18 +10,18 @@ import mushroom_battle.model.sprite.RectangleSprite;
 abstract public class MushroomBattlePainter extends SpritePainter{
 
     Rectangle spriteBody;
-    JPanel canvas, unit;
+    JPanel canvas, target;
 
     public MushroomBattlePainter(View view, RectangleSprite sprite){
         super(view, sprite);
         this.spriteBody = sprite;
 
         this.canvas = (JPanel) this.getRenderable();
-        this.unit = createUnit(spriteBody.x, spriteBody.y, spriteBody.width, spriteBody.height);
-        this.canvas.add(unit);
+        this.target = createRectanglePanel(spriteBody.x, spriteBody.y, spriteBody.width, spriteBody.height);
+        this.canvas.add(target);
     }
 
-    protected JPanel createUnit(int x, int y, int width, int height){
+    protected JPanel createRectanglePanel(int x, int y, int width, int height){
         JPanel secondaryPanel = new JPanel();
         secondaryPanel.setLocation(x, y);
         secondaryPanel.setSize(width, height);
@@ -29,9 +29,9 @@ abstract public class MushroomBattlePainter extends SpritePainter{
     }
 
     public void paint(){
-        this.unit.setLocation(spriteBody.x, spriteBody.y);
-        this.unit.setSize(spriteBody.width, spriteBody.height);
-        this.unit.setVisible(sprite.isVisible());
+        this.target.setLocation(spriteBody.x, spriteBody.y);
+        this.target.setSize(spriteBody.width, spriteBody.height);
+        this.target.setVisible(sprite.isVisible());
         // subclasses should override this method for more specific painting
     }
 }

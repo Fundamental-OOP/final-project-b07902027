@@ -5,7 +5,6 @@ import mushroom_battle.view.*;
 import mushroom_battle.controller.*;
 import mushroom_battle.view.painter.*;
 
-import java.awt.Color;
 
 import mushroom_battle.Constant;
 import mushroom_battle.Constant.GOOMBA1;
@@ -59,7 +58,7 @@ public class Main{
             new GoombaMarkPainter(view, gb2, "img/goomba.png", Constant.GOOMBA_READY_MARK_SIZE),
             new ScoreBoardPainter(view, scoreBoard1, Constant.PLAYER1_COLOR),
             new ScoreBoardPainter(view, scoreBoard2, Constant.PLAYER2_COLOR),
-            new GameOverPainter(view, game, Constant.GAMEOVER_X, Constant.GAMEOVER_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT, Color.BLACK)
+            new GameOverPainter(view, game, Constant.GAMEOVER_X, Constant.GAMEOVER_Y, Constant.BOARD_WIDTH, Constant.BOARD_HEIGHT)
         );
 
         game.start();

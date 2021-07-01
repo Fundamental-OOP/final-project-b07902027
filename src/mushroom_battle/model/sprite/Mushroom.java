@@ -1,10 +1,9 @@
 package mushroom_battle.model.sprite;
 
 import mushroom_battle.Constant;
-import mushroom_battle.model.GoombaOwner;
 import mushroom_battle.model.ScoreBoard;
 
-public class Mushroom extends ActiveSprite implements GoombaOwner{
+public class Mushroom extends ActiveSprite{
     
     private boolean alive = true;
     private Goomba goomba;

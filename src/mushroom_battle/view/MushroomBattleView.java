@@ -45,10 +45,10 @@ public class MushroomBattleView extends JFrame implements View{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);
         this.setVisible(true);
-        this.initController();
+        this.initKeyController();
     }
 
-    private void initController(){
+    private void initKeyController(){
 
         addKeyListener(new KeyAdapter() {
             @Override

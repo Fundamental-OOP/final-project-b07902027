@@ -17,29 +17,29 @@ public class GoombaMarkPainter extends MushroomBattlePainter{
     public GoombaMarkPainter(View view, Goomba goomba, String imagePath, int markSize){
         super(view, goomba);
         this.goomba = goomba;
-        this.image = (ImageJPanel) this.unit;
+        this.image = (ImageJPanel) this.target;
         this.image.setImage(imagePath, markSize, markSize);
         this.direction = goomba.getDirection();
         resetLocation();
-        this.unit.setSize(markSize, markSize);
+        this.target.setSize(markSize, markSize);
     }
 
     @Override
-    protected JPanel createUnit(int x, int y, int width, int height){
+    protected JPanel createRectanglePanel(int x, int y, int width, int height){
         return new ImageJPanel();
     }
 
     public void paint(){
         if (goomba.hasOwner()){
-            this.unit.setVisible(true);
+            this.target.setVisible(true);
             resetLocation();
         } else{
-            this.unit.setVisible(false);
+            this.target.setVisible(false);
         }
     }
 
     protected void resetLocation(){
-        this.unit.setLocation(goomba.x + goomba.getOwner().width / 2 + direction.getReadyX() - 4,
+        this.target.setLocation(goomba.x + goomba.getOwner().width / 2 + direction.getReadyX() - 4,
                               goomba.y + goomba.getOwner().height / 2 + direction.getReadyY());
     }
 

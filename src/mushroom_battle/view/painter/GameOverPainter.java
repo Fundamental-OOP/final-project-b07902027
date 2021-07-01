@@ -1,6 +1,5 @@
 package mushroom_battle.view.painter;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
@@ -18,18 +17,18 @@ public class GameOverPainter implements Painter{
     protected int x, y, width, height;
     protected MushroomBattleGame game;
     protected final Renderable r;
-    protected final JPanel unit;
+    protected final JPanel target;
     protected final JLabel label;
 
-    public GameOverPainter(View view, MushroomBattleGame game, int x, int y, int width, int height, Color color){
+    public GameOverPainter(View view, MushroomBattleGame game, int x, int y, int width, int height){
         this.r = view.getRenderable();
         this.game = game;
-        this.unit = createUnit(x, y, width, height);
-        ((JPanel) r).add(unit);
+        this.target = createRectanglePanel(x, y, width, height);
+        ((JPanel) r).add(target);
         this.label = new JLabel("TEST");
         this.label.setFont(new Font(Constant.FONT_TYPE, 1, Constant.FONT_SIZE));
-        this.unit.add(label);
-        this.unit.setOpaque(false);
+        this.target.add(label);
+        this.target.setOpaque(false);
     }
 
     @Override
@@ -40,15 +39,15 @@ public class GameOverPainter implements Painter{
     @Override
     public void paint(){
         if (!game.isRunning()){
-            this.unit.setVisible(true);
+            this.target.setVisible(true);
             this.label.setText("Player " + game.getWinnerIdx() + " WINS!");
             this.label.setForeground((game.getWinnerIdx() == 1) ? Constant.PLAYER1_COLOR : Constant.PLAYER2_COLOR);
         } else{
-            this.unit.setVisible(false);
+            this.target.setVisible(false);
         }
     }
 
-    private JPanel createUnit(int x, int y, int width, int height){
+    private JPanel createRectanglePanel(int x, int y, int width, int height){
         JPanel secondaryPanel = new JPanel();
         secondaryPanel.setLocation(x, y);
         secondaryPanel.setSize(width, height);

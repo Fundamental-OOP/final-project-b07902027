@@ -23,8 +23,8 @@ public class ScoreBoardPainter extends MushroomBattlePainter{
         this.label = new JLabel("Score: 0");
         this.label.setForeground(color);
         this.label.setFont(new Font("Verdana",1,20));
-        this.unit.add(label);
-        this.unit.setOpaque(false);
+        this.target.add(label);
+        this.target.setOpaque(false);
     }
 
     @Override

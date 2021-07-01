@@ -27,11 +27,11 @@ public class GravityCollisionHandler extends CollisionHandler{
         ActiveSprite targetSprite = (ActiveSprite) target;
         for (Sprite otherSprite: otherSprites){
             if (otherSprite instanceof Ground)
-                handle(targetSprite, (Ground) otherSprite);
+                landingHandler(targetSprite, (Ground) otherSprite);
         }
     }
 
-    public void handle(ActiveSprite sprite, Ground ground){
+    public void landingHandler(ActiveSprite sprite, Ground ground){
         if (sprite.intersects(ground.x, ground.y-1, ground.width, ground.height) && 
             sprite.isFalling && 
             sprite.ySpeed > 0
