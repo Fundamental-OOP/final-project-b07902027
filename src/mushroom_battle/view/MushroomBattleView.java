@@ -74,6 +74,11 @@ public class MushroomBattleView extends JFrame implements View{
     public void addPainter(Painter painter) {
         painters.add(painter);
     }
+
+    @Override
+    public List<Painter> getPainters(){
+        return this.painters;
+    }
     
     @Override
     public void launch(){
@@ -87,13 +92,6 @@ public class MushroomBattleView extends JFrame implements View{
     @Override
     public Renderable getRenderable(){
         return this.canvas;
-    }
-
-    @Override 
-    public void render(){
-        for (Painter painter: this.painters){
-            painter.paint();
-        }
     }
 
     public class MushroomCanvas extends JPanel implements Renderable{
