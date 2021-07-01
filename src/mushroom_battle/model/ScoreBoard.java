@@ -1,6 +1,6 @@
 package mushroom_battle.model;
 
-import sdk.model.RectangleSprite;
+import mushroom_battle.model.sprite.RectangleSprite;
 import mushroom_battle.model.sprite.Mushroom;
 
 public class ScoreBoard extends RectangleSprite{

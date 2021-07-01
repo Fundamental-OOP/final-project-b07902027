@@ -1,7 +1,5 @@
 package mushroom_battle.model.sprite;
 
-import sdk.model.RectangleSprite;
-
 
 public class Ground extends RectangleSprite{
     

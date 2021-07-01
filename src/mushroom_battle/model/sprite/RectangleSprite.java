@@ -1,5 +1,7 @@
-package sdk.model;
+package mushroom_battle.model.sprite;
 
+import sdk.model.World;
+import sdk.model.Sprite;
 import sdk.view.Painter;
 
 public abstract class RectangleSprite extends java.awt.Rectangle implements Sprite{

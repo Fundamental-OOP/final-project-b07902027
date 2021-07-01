@@ -6,7 +6,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 import sdk.view.View;
-import sdk.model.RectangleSprite;
+import mushroom_battle.model.sprite.RectangleSprite;
 import mushroom_battle.model.ScoreBoard;
 
 public class ScoreBoardPainter extends MushroomBattlePainter{

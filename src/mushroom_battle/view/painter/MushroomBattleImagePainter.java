@@ -3,7 +3,7 @@ package mushroom_battle.view.painter;
 import javax.swing.JPanel;
 
 import sdk.view.View;
-import sdk.model.RectangleSprite;
+import mushroom_battle.model.sprite.RectangleSprite;
 import mushroom_battle.view.ImageJPanel;
 
 public class MushroomBattleImagePainter extends MushroomBattlePainter {

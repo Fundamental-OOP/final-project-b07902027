@@ -1,4 +1,4 @@
-package sdk.model;
+package mushroom_battle.model;
 
 public interface Movable {
     void setSpeed(int xSpeed, int ySpeed);

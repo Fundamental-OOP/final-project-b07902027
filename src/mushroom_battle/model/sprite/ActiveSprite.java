@@ -1,6 +1,6 @@
 package mushroom_battle.model.sprite;
 
-import sdk.model.RectangleSprite;
+
 import mushroom_battle.model.GravityApplicable;
 
 public abstract class ActiveSprite extends RectangleSprite implements GravityApplicable{

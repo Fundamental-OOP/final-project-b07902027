@@ -3,8 +3,8 @@ package mushroom_battle.view.painter;
 import java.awt.Rectangle;
 import javax.swing.JPanel;
 
-import sdk.model.*;
 import sdk.view.*;
+import mushroom_battle.model.sprite.RectangleSprite;
 
 
 abstract public class MushroomBattlePainter extends SpritePainter{
