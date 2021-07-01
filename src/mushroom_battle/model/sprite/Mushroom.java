@@ -19,19 +19,16 @@ public class Mushroom extends ActiveSprite{
     public void update(){
     }
 
-    @Override
     public void setGoomba(Goomba goomba){
         this.goomba = goomba;
         goomba.setOwner(this);
     }
 
-    @Override
     public boolean hasGoomba(){
         return this.goomba != null;
         // return false;
     }
 
-    @Override
     public Goomba getGoomba(){
         if (this.goomba == null){
             throw new RuntimeException(getName() + " doesn't have goomba but was required one.\n");
@@ -39,7 +36,6 @@ public class Mushroom extends ActiveSprite{
         return this.goomba;
     }
 
-    @Override
     public void throwGoomba(){
         this.goomba.thrown();
         this.goomba = null;
